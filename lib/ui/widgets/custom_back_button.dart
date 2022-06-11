@@ -7,28 +7,24 @@ import 'package:flutter/material.dart';
 
 class CustomBackButton extends StatelessWidget {
 
-  final BuildContext? buildContext;
+  final BuildContext buildContext;
   final double buttonSize; 
   
   const CustomBackButton({ Key? key, 
-    this.buildContext, 
+    required this.buildContext, 
     this.buttonSize = SizeConsts.kDefaultAppBarButtonSize,  
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return this.buildContext != null 
-      ? Align(
-        alignment: Alignment.centerLeft,
-        child: GestureDetector(
-          onTap: () { 
-            if (this.buildContext != null) {
-              Navigator.pop(this.buildContext!);
-            }
-          },
-          child: Icon(Icons.arrow_back, size: this.buttonSize, color: ColorConsts.black,)
-        ),
-      ) 
-        : Container();
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: GestureDetector(
+        onTap: () { 
+          Navigator.pop(this.buildContext);
+        },
+        child: Icon(Icons.arrow_back, size: this.buttonSize, color: ColorConsts.black,)
+      ),
+    );
   }
 }

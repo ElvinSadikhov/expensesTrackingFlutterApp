@@ -7,7 +7,7 @@ class TextStyleConsts {
 
   static const TextStyle appBarLabelStyle = TextStyle( 
     fontWeight: FontWeight.w500,
-    color: ColorConsts.black
+    color: ColorConsts.black,
   );
 
   static const TextStyle buttonLabelStyle = TextStyle( 
@@ -18,14 +18,15 @@ class TextStyleConsts {
   static const TextStyle nonclickableRecommendationStyle = TextStyle( 
     fontSize: 14,
     fontWeight: FontWeight.w400,
-    color: ColorConsts.black, 
+    color: ColorConsts.black,  
   );
 
   static const TextStyle clickableRecommendationStyle = TextStyle( 
     fontSize: 14,
     fontWeight: FontWeight.w500,
     color: ColorConsts.blue, 
-    fontStyle: FontStyle.italic
+    fontStyle: FontStyle.italic,
+    decoration: TextDecoration.underline,
   );
 
 }

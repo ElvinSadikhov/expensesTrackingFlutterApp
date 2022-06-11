@@ -37,20 +37,16 @@ class ProductSearch extends SearchDelegate< ProductWidget > {
 
   @override
   Widget buildResults(BuildContext context) {
-    return this.findSuggestions();
+    return this.displaySuggestions();
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return this.findSuggestions();
+    return this.displaySuggestions();
   }
 
-  Widget findResults() {
-    final suggestions = this.productList.where(
-      (productWidget) {
-        return productWidget.product.title.toLowerCase().contains(query.toLowerCase());
-      }
-    );
+  Widget displayResults() {
+    final suggestions = findSuggestions();
 
     return ListView.builder(
       itemCount: suggestions.length,
@@ -67,8 +63,7 @@ class ProductSearch extends SearchDelegate< ProductWidget > {
                   },
                 );
               }
-            ),
-            
+            ), 
           ],
         );
       }
@@ -76,12 +71,8 @@ class ProductSearch extends SearchDelegate< ProductWidget > {
   }
 
 
-  Widget findSuggestions() {
-    final suggestions = this.productList.where(
-      (productWidget) {
-        return productWidget.product.title.toLowerCase().contains(query.toLowerCase());
-      }
-    );
+  Widget displaySuggestions() {
+    final suggestions = findSuggestions();
 
     return ListView.builder(
       itemCount: suggestions.length,
@@ -97,12 +88,19 @@ class ProductSearch extends SearchDelegate< ProductWidget > {
                   },
                 );
               }
-            ),
-            
+            ), 
           ],
         );
       }
     );  
-  }
+  } 
 
+  List<ProductWidget> findSuggestions() {
+    this.productList.where(
+      (productWidget) {
+        return productWidget.product.title.toLowerCase().contains(query.toLowerCase());
+      }
+    ); 
+    return [];
+  }
 }

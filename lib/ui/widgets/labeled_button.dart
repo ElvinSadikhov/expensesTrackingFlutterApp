@@ -59,49 +59,6 @@ class _LabeledButtonState extends State<LabeledButton> {
           borderRadius: BorderRadius.circular(12),
         ),
       )
-    );
-    
-      // child: ClipRRect(
-      //   borderRadius: BorderRadius.circular(widget.borderRadiusValue),  
-      //   child: Container(  
-      //     child: Padding(
-      //       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-      //       child: Text(
-      //         widget.label,
-      //         style: TextStyleConsts.buttonLabelStyle.copyWith(fontSize: widget.labelSize),
-      //       ),
-      //     ),
-      //     decoration: BoxDecoration( 
-      //       border: Border.all(color: ColorConsts.black, width: 2),
-      //       boxShadow: [
-      //         BoxShadow(
-      //           blurRadius: 2, 
-      //           blurStyle: BlurStyle.outer,
-      //           color: ColorConsts.black,
-      //           offset: Offset(0, -5),
-      //         )
-      //       ] 
-      //     ),
-    
-      //   ),
-      // ),
-      // );
-  }
+    ); 
+  } 
 }
-
-
-
-// @override
-// Widget build(BuildContext context) {
-//   return ElevatedButton(
-//     onPressed: this.onPressed, 
-//     child: Text(
-//       this.label,
-//       style: TextStyleConsts.buttonLabelStyle.copyWith(fontSize: 20),
-//     ),
-//     style: ButtonStyle(
-//       backgroundColor: MaterialStateProperty.all<Color>(this.backgroundColor), 
-//       alignment: Alignment.center, 
-//     ),
-//   );
-// }

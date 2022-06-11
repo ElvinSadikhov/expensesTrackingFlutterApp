@@ -7,21 +7,16 @@ import 'package:flutter/material.dart';
 class ClickableRecommendationText extends StatelessWidget {
   final String nonclickableText;
   final String clickableText;
-  final Function()? onTap;
+  final Function() onTap;
 
   const ClickableRecommendationText({ Key? key, 
     required this.nonclickableText, 
     required this.clickableText, 
-    this.onTap,
+    required this.onTap,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-
-
-
-    // TODO: PUT SOME CLICK EFFECT LATER
-
+  Widget build(BuildContext context) { 
 
     return RichText(
       text: TextSpan(
@@ -34,7 +29,7 @@ class ClickableRecommendationText extends StatelessWidget {
             text: this.clickableText, 
             style: TextStyleConsts.clickableRecommendationStyle,
             recognizer: TapGestureRecognizer()
-              ..onTap = this.onTap != null ? this.onTap! : () {},
+              ..onTap = this.onTap,
           ),
         ]
       ),

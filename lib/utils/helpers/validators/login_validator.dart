@@ -2,6 +2,8 @@ class LogInValidator {
 
   LogInValidator._();
 
+  // TODO: TO CHANGE
+
   static String? validateUsername(String? value) {
     return value == null || value.isEmpty ? "Please enter valid username!" 
       : value.length < 8 ? "Username must contain at least 8 characters!"  

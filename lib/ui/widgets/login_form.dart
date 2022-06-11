@@ -37,8 +37,7 @@ class _LoginFormState extends State<LoginForm> {
                   controller: this.usernameController, 
                   hintText: Strings.username, 
                   validator: (value) => LogInValidator.validateUsername(value),
-                  labelText: Strings.username,   
-                  textInputAction: TextInputAction.next,  
+                  labelText: Strings.username,      
                 ),  
                 CustomTextFormField(
                   controller: this.passwordController, 

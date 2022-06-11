@@ -40,40 +40,36 @@ class _RegistrationForm extends State<RegistrationForm> {
             padding: widget.padding,
             child: Column(
               children: [
+                // TODO: listview buildernen elemek
                 CustomTextFormField(
                   controller: this.firstNameController, 
                   hintText: Strings.firstName, 
                   validator: (value) => RegistrationValidator.validateFirstName(value),
-                  labelText: Strings.firstName,   
-                  textInputAction: TextInputAction.next,  
+                  labelText: Strings.firstName,    
                 ),    
                 CustomTextFormField(
                   controller: this.lastNameController, 
                   hintText: Strings.lastName, 
                   validator: (value) => RegistrationValidator.validateLastName(value),
-                  labelText: Strings.lastName,   
-                  textInputAction: TextInputAction.next,  
+                  labelText: Strings.lastName,     
                 ),  
                 CustomTextFormField(
                   controller: this.emailController, 
                   hintText: Strings.email, 
                   validator: (value) => RegistrationValidator.validateGmail(value),
-                  labelText: Strings.email,   
-                  textInputAction: TextInputAction.next,  
+                  labelText: Strings.email,    
                 ),  
                 CustomTextFormField(
                   controller: this.usernameController, 
                   hintText: Strings.username, 
                   validator: (value) => RegistrationValidator.validateUsername(value),
-                  labelText: Strings.username,   
-                  textInputAction: TextInputAction.next,  
+                  labelText: Strings.username,     
                 ),  
                 CustomTextFormField(
                   controller: this.passwordController, 
                   hintText: Strings.password, 
                   validator: (value) => RegistrationValidator.validatePassword(value),
-                  labelText: Strings.password,   
-                  textInputAction: TextInputAction.done,  
+                  labelText: Strings.password,    
                   obscureText: true,
                 ), 
                 CustomTextFormField(
