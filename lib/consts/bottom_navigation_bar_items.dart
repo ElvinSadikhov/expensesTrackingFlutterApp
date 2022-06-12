@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 
 class BottomNavigationBarItems {
 
-  BottomNavigationBarItems._();
-
-  // TODO: 
+  BottomNavigationBarItems._(); 
 
   static final List<BottomNavigationBarItem> navigationItems = [
     const BottomNavigationBarItem(icon: Icon(Icons.home), label: Strings.home),

@@ -29,4 +29,44 @@ class TextStyleConsts {
     decoration: TextDecoration.underline,
   );
 
+  static const TextStyle blockTitleStyle = TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.w400,
+    color: ColorConsts.black,
+  );
+
+  static const TextStyle blockSubtitleStyle = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    color: ColorConsts.black,
+  );
+
+  static const TextStyle productShortcutTitleStyle = TextStyle(
+    overflow: TextOverflow.ellipsis,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: ColorConsts.black,
+  );
+
+  static const TextStyle productShortcutCurrentPriceStyle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    color: ColorConsts.black,
+  );
+
+  static const productShortcutOldPriceStyle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    color: ColorConsts.black,
+    decoration: TextDecoration.lineThrough,
+  );
+
+  static const productShortcutDiscountStyle = TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeight.bold,
+    color: ColorConsts.black,
+    decoration: TextDecoration.lineThrough,
+  );
+
+
 }

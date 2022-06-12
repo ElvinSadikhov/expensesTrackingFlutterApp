@@ -18,7 +18,7 @@ class SearchButton extends StatelessWidget {
         onPressed: () {
           showSearch<ProductWidget>(
             context: context, 
-            delegate: this.searchDelegate!,
+            delegate: this.searchDelegate,
           );
         }, 
         icon: const Icon(

@@ -17,10 +17,23 @@ class LoginForm extends StatefulWidget {
   State<LoginForm> createState() => _LoginFormState();
 }
 
-class _LoginFormState extends State<LoginForm> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  TextEditingController usernameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController(); 
+class _LoginFormState extends State<LoginForm> { 
+  // TextEditingController usernameController = TextEditingController();
+  // TextEditingController passwordController = TextEditingController(); 
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); 
+  final List<TextEditingController> _controllers = [
+    TextEditingController(text: ""),
+    TextEditingController(text: ""), 
+  ];
+  final List<String> _texts = [ 
+    Strings.username,
+    Strings.password, 
+  ];  
+  final List<dynamic> _validators = [ 
+    LoginValidator.validateUsername,
+    LoginValidator.validatePassword, 
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -33,22 +46,40 @@ class _LoginFormState extends State<LoginForm> {
             padding: widget.padding,
             child: Column(
               children: [
-                CustomTextFormField(
-                  controller: this.usernameController, 
-                  hintText: Strings.username, 
-                  validator: (value) => LogInValidator.validateUsername(value),
-                  labelText: Strings.username,      
-                ),  
-                CustomTextFormField(
-                  controller: this.passwordController, 
-                  hintText: Strings.password, 
-                  validator: (value) => LogInValidator.validatePassword(value),
-                  labelText: Strings.password,   
-                  textInputAction: TextInputAction.done,  
-                  obscureText: true,
-                ),
-              ]
-            ),
+                ...List.generate(this._controllers.length, (index) => index).map(
+                  (index) {
+                    return CustomTextFormField(
+                      controller: this._controllers[index], 
+                      validator: this._validators[index],
+                      hintText: this._texts[index],
+                      labelText: this._texts[index],
+                      obscureText: index >= this._controllers.length - 1 ? true : false,
+                      textInputAction: index == this._controllers.length - 1 ? TextInputAction.done : TextInputAction.next,
+                    );
+                  }
+                )
+              ],
+            )
+
+            // Column(
+            //   children: [
+            //     CustomTextFormField(
+            //       controller: this.usernameController, 
+            //       hintText: Strings.username, 
+            //       validator: (value) => LoginValidator.validateUsername(value),
+            //       labelText: Strings.username,      
+            //     ),  
+            //     CustomTextFormField(
+            //       controller: this.passwordController, 
+            //       hintText: Strings.password, 
+            //       validator: (value) => LoginValidator.validatePassword(value),
+            //       labelText: Strings.password,   
+            //       textInputAction: TextInputAction.done,  
+            //       obscureText: true,
+            //     ),
+            //   ]
+            // ),
+
           )
         ),
         WidgetMethods.verticalSpace(20),

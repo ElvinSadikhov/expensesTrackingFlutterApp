@@ -1,6 +1,6 @@
-class LogInValidator {
+class LoginValidator {
 
-  LogInValidator._();
+  LoginValidator._();
 
   // TODO: TO CHANGE
 

@@ -31,9 +31,7 @@ class _LabeledButtonState extends State<LabeledButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {  
-        widget.onTap();
-      }, 
+      onTap: widget.onTap, 
       child: Container( 
         child: Card( 
           shape: RoundedRectangleBorder(

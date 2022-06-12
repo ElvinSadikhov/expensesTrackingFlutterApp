@@ -10,5 +10,6 @@ class ColorConsts {
   static const Color blue = Colors.blue; 
 
   static const Color navBarSelectedItemColor = Colors.blueAccent;
+  static const Color discountTagColor = Colors.red;
 
 }

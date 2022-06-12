@@ -14,12 +14,16 @@ class Strings {
   static const String registration = "Registration"; 
   static const String firstName = "First name"; 
   static const String lastName = "Last name"; 
-  static const String email = "Email"; 
+  static const String gmail = "Gmail"; 
   static const String confirmPassword = "Confirm password";
 
   static const home = "Home";  
   static const cart = "Cart";  
   static const history = "History";  
   static const profile = "Profile";  
+
+  static const seeAll = "See all";
+  static const discountedProducts = "Discounted Products"; 
+  static const latestProductPrices = "Latest Product Prices";
   
 }

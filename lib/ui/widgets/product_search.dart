@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_this
 
 import 'package:expenses_tracking_app/data/product.dart';
+import 'package:expenses_tracking_app/data/products.dart';
 import 'package:expenses_tracking_app/ui/widgets/product_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,7 @@ class ProductSearch extends SearchDelegate< ProductWidget > {
 
   final List<ProductWidget> productList;
   // TODO: CHANGE
-  ProductWidget result = ProductWidget(product: Product(title: ""),);
+  ProductWidget result = ProductWidget(product: Products.products[0],);
 
   ProductSearch({required this.productList});
 

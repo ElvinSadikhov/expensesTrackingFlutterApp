@@ -3,10 +3,7 @@
 import 'package:expenses_tracking_app/consts/color_consts.dart';
 import 'package:expenses_tracking_app/consts/font_size_consts.dart';
 import 'package:expenses_tracking_app/consts/padding_consts.dart';
-import 'package:expenses_tracking_app/consts/size_consts.dart';
-import 'package:expenses_tracking_app/consts/text_style_consts.dart';
-import 'package:expenses_tracking_app/data/product.dart';
-import 'package:expenses_tracking_app/data/strings.dart';
+import 'package:expenses_tracking_app/consts/size_consts.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/helpers/app_bar_label_widget.dart';
 import 'package:expenses_tracking_app/ui/widgets/custom_back_button.dart';
 import 'package:expenses_tracking_app/ui/widgets/product_widget.dart';
@@ -37,7 +34,7 @@ class SearchAppBar extends StatelessWidget implements PreferredSizeWidget{
     return SafeArea(
       child: Container(
         color: this.backgroundColor,
-        height: this.fontSize + 15,
+        height: this.fontSize + 30,
         width: sizeOfScreen.width,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: PaddingConsts.horizontalPadding),
@@ -53,7 +50,6 @@ class SearchAppBar extends StatelessWidget implements PreferredSizeWidget{
     );
   }
 
-  @override
-  // TODO: implement preferredSize
+  @override 
   Size get preferredSize => const Size.fromHeight(SizeConsts.appBarHeight);
 }
