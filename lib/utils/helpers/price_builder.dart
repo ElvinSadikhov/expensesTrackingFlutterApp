@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_this
+ 
+import 'package:expenses_tracking_app/utils/enums/currency.dart';
 
-import 'package:expenses_tracking_app/data/product.dart';
 
 class PriceTagBuilder { 
 

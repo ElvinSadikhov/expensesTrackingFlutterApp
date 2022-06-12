@@ -1,14 +1,15 @@
-import 'package:flutter/material.dart';
+import 'package:expenses_tracking_app/utils/enums/currency.dart'; 
+
 
 class Product {  
   final int id;
   final String title;
   final double price;
   final Currency currency;
-  final String imageLink;
-  final double? discountedPrice;
+  final String imageLink; 
   final String storeName;
   final String storeLocation; 
+  final double? discountedPrice;
   final String? description;
 
   Product({
@@ -23,10 +24,4 @@ class Product {
     this.description 
   }); 
 
-}
-
-enum Currency {
-  DOLLAR,
-  EURO,
-  MANAT
-}
+}  

@@ -1,8 +1,9 @@
 import 'package:expenses_tracking_app/data/product.dart';
+import 'package:expenses_tracking_app/utils/enums/currency.dart';
 
 class Products {
   static final List<Product> products = [
-    Product(discountedPrice: 0.89, id: 1, title: "Coca Cola - 0.5L", price: 0.99, currency: Currency.MANAT, storeName: "Bravo", storeLocation: "Nariman Narimanov 18", imageLink: "https://bazarstore.az/220-large_default/coca-cola-500-ml-pet.jpg?1654964787305"),
+    Product(id: 1, title: "Coca Cola - 0.5L", price: 0.99, discountedPrice: 0.89, currency: Currency.MANAT, storeName: "Bravo", storeLocation: "Nariman Narimanov 18", imageLink: "https://bazarstore.az/220-large_default/coca-cola-500-ml-pet.jpg?1654964787305"),
     Product(id: 2, title: "Coca Cola - 1L", price: 1.59, currency: Currency.MANAT, storeName: "Bravo", storeLocation: "Gara Garayev 64", imageLink: "https://www.myzaqatala.com/wp-content/uploads/2020/04/5156FefjlqL._SL1000_-600x600.jpg"),
     Product(id: 3, title: "Domestos \"Lemon fresh\" - 1L", price: 3.46, currency: Currency.MANAT, storeName: "Balli", storeLocation: "Neftchiler avenue 109", imageLink: "https://unimall.az/images/detailed/313/1565338956_976a4c22b672553967f1e366b684ef7d.jpg"),
     Product(id: 4, title: "Lay's \"Cheese\"- 150Gr", price: 2.6, currency: Currency.MANAT, storeName: "Araz", storeLocation: "near 28 MAY m/s", imageLink: "https://bravomarket.online/upload/iblock/8f7/8f7ed58bd9514e716215cb1ecb146aa9.jpg"),
