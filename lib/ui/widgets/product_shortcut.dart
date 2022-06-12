@@ -1,9 +1,10 @@
-// ignore_for_file: unnecessary_this
+// ignore_for_file: unnecessary_this, prefer_function_declarations_over_variables
 
 import 'package:expenses_tracking_app/consts/color_consts.dart';
 import 'package:expenses_tracking_app/consts/size_consts.dart'; 
 import 'package:expenses_tracking_app/consts/text_style_consts.dart';
 import 'package:expenses_tracking_app/data/product.dart';
+import 'package:expenses_tracking_app/ui/screens/product_screen.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/discount_tag.dart';
 import 'package:expenses_tracking_app/utils/helpers/price_builder.dart';
 import 'package:expenses_tracking_app/utils/helpers/widget_methods.dart';
@@ -11,26 +12,26 @@ import 'package:flutter/material.dart';
 
 
 class ProductShortcut extends StatelessWidget {
-  final Product product;
-  final Function()? onTap;
+  final Product product; 
   final double borderRadiusValue;
   final double containerSize;
   final double discountTagRadius;
-  final double discountTagShift;
+  final double discountTagShift; 
 
   const ProductShortcut({ Key? key, 
     required this.product,   
     required this.containerSize, 
     required this.discountTagRadius, 
-    required this.discountTagShift, 
-    this.borderRadiusValue = SizeConsts.productShortcutBorderRadius,
-    this.onTap, 
-  }) : super(key: key);
+    required this.discountTagShift,  
+    this.borderRadiusValue = SizeConsts.productShortcutBorderRadius, 
+  }) : super(key: key); 
 
   @override
   Widget build(BuildContext context) { 
     return GestureDetector(
-      onTap: this.onTap,
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const ProductScreen()));
+      },
       child: SizedBox(  
         width: this.containerSize + this.discountTagShift,
         child: Stack(

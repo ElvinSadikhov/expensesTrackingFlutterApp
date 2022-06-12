@@ -30,7 +30,7 @@ class _DiscountedProductsListViewState extends State<DiscountedProductsListView>
                   product: productState.productList[index], 
                   containerSize: productState.shortcutImageHeight!, 
                   discountTagRadius: productState.discountTagRadius!, 
-                  discountTagShift: productState.discountTagShift!,
+                  discountTagShift: productState.discountTagShift!
                 )
             ), 
           ),
