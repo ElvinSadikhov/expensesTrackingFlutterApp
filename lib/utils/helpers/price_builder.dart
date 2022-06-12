@@ -27,9 +27,9 @@ class PriceTagBuilder {
   }
 
   static String calculatedDiscountPercentage({required double actualPrice, required discountedPrice}) {
-    double priceDrop = (actualPrice - discountedPrice) / actualPrice;
+    double priceDrop = (actualPrice - discountedPrice) / actualPrice * 100;
 
-    return "${priceDrop.toStringAsFixed(2)} %";
+    return "-${priceDrop.toStringAsFixed(2)} %";
   }
 
   // idk need to think about this one !!!

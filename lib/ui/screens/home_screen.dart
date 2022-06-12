@@ -1,9 +1,15 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'package:expenses_tracking_app/consts/color_consts.dart';
 import 'package:expenses_tracking_app/consts/padding_consts.dart';
 import 'package:expenses_tracking_app/consts/size_consts.dart';
+import 'package:expenses_tracking_app/data/strings.dart';
 import 'package:expenses_tracking_app/providers/product_state.dart'; 
 import 'package:expenses_tracking_app/ui/screens/qr_scanner_screen.dart';
-import 'package:expenses_tracking_app/ui/widgets/discounted_products_block.dart'; 
+import 'package:expenses_tracking_app/ui/widgets/discounnted_products_list_view.dart';
+import 'package:expenses_tracking_app/ui/widgets/discounted_products_block.dart';
+import 'package:expenses_tracking_app/ui/widgets/helpers/block_label.dart';
+import 'package:expenses_tracking_app/ui/widgets/product_block.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/search_app_bar.dart';
 import 'package:expenses_tracking_app/ui/widgets/custom_bottom_navigation_bar.dart';  
 import 'package:expenses_tracking_app/ui/widgets/product_search.dart';  
@@ -42,7 +48,8 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.only(left: PaddingConsts.horizontalPadding, right: PaddingConsts.horizontalPadding),
         child: Column(
           children: [
-            const DiscountedProductsBlock(),
+            const ProductBlock(blockLabel: BlockLabel(title: Strings.discountedProducts,), child: DiscountedProductsListView())
+            // const DiscountedProductsBlock(),
             // WidgetMethods.verticalSpace(20),
             // const LatestProductPricesBlock(),
           ]

@@ -62,7 +62,7 @@ class TextStyleConsts {
   );
 
   static const productShortcutDiscountStyle = TextStyle(
-    fontSize: 13,
+    fontSize: 10,
     fontWeight: FontWeight.bold,
     color: ColorConsts.black,
     decoration: TextDecoration.lineThrough,
