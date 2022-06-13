@@ -1,3 +1,6 @@
+import 'package:expenses_tracking_app/services/explore_service.dart.dart';
+import 'package:expenses_tracking_app/services/product_service.dart';
+import 'package:expenses_tracking_app/ui/widgets/helpers/products_list_view.dart';
 import 'package:flutter/material.dart';
 
 
@@ -10,11 +13,7 @@ class LatestProductPricesListView extends StatefulWidget {
 
 class _LatestProductPricesListViewState extends State<LatestProductPricesListView> {
   @override
-  Widget build(BuildContext context) {
-    // TODO: TO WRITE MOCK DATA CLASS (LIKE DIO) AND WRITE THIS PART TOO
-    // CAN CREATE AN ABSTRACT CLASS FOR DISCOUNTED/LASTEST PR. PRICES/ ETC.
-    return Container(
-      
-    );
+  Widget build(BuildContext context) { 
+    return ProductsListView(productService: ExploreService(),);
   }
 }

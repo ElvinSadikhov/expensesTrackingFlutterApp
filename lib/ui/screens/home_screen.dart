@@ -7,7 +7,7 @@ import 'package:expenses_tracking_app/data/strings.dart';
 import 'package:expenses_tracking_app/providers/product_state.dart'; 
 import 'package:expenses_tracking_app/ui/screens/qr_scanner_screen.dart';
 import 'package:expenses_tracking_app/ui/widgets/discounnted_products_list_view.dart';
-import 'package:expenses_tracking_app/ui/widgets/helpers/discounted_products_block.dart';
+import 'package:expenses_tracking_app/ui/widgets/discounted_products_block.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/block_label.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/latest_product_prices_block.dart';
 import 'package:expenses_tracking_app/ui/widgets/product_block.dart'; 

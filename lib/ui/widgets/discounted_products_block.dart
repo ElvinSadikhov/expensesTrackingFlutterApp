@@ -14,8 +14,7 @@ class DiscountedProductsBlock extends StatefulWidget {
 
 class _DiscountedProductsBlockState extends State<DiscountedProductsBlock> {
   @override
-  Widget build(BuildContext context) {
-    // TODO: MAKE IT INHERITED WIDGET ( .OF STUFF )
+  Widget build(BuildContext context) { 
     return const ProductBlock(blockLabel: BlockLabel(title: Strings.discountedProducts,), child: DiscountedProductsListView());
   }
 }
