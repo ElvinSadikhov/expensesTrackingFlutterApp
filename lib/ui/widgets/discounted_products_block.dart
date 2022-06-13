@@ -1,4 +1,4 @@
-import 'package:expenses_tracking_app/data/strings.dart';
+import 'package:expenses_tracking_app/consts/strings.dart';
 import 'package:expenses_tracking_app/ui/widgets/discounnted_products_list_view.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/block_label.dart';
 import 'package:expenses_tracking_app/ui/widgets/product_block.dart';

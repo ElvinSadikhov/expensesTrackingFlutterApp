@@ -1,5 +1,5 @@
 import 'package:expenses_tracking_app/consts/padding_consts.dart';
-import 'package:expenses_tracking_app/data/strings.dart';
+import 'package:expenses_tracking_app/consts/strings.dart';
 import 'package:expenses_tracking_app/ui/screens/registration_screen.dart';
 import 'package:expenses_tracking_app/ui/widgets/clickable_recommendation_text.dart';
 import 'package:expenses_tracking_app/ui/widgets/search_app_bar.dart'; 

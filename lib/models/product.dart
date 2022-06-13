@@ -1,5 +1,21 @@
-import 'package:expenses_tracking_app/utils/enums/currency.dart'; 
+import 'package:expenses_tracking_app/utils/enums/currency.dart';
+import 'package:expenses_tracking_app/utils/extensions/enum_converter.dart'; 
 
+class ProductFields {
+
+  ProductFields._();
+
+  static const String id = "_id"; //
+  static const String title = "title";
+  static const String price = "price";
+  static const String currency = "currency";
+  static const String imageLink = "imageLink";
+  static const String storeName = "storeName";
+  static const String storeLocation = "storeLocation";
+  static const String discountedPrice = "discountedPrice";
+  static const String description = "description"; 
+
+}
 
 class Product {  
   final int id;
@@ -23,5 +39,31 @@ class Product {
     this.discountedPrice,
     this.description 
   }); 
+
+  factory Product.fromJson(Map<String, dynamic> json) => Product(
+    id: json['id'],
+    title: json['title'],
+    price: json['price'],
+    currency: EnumConverter.enumFromString(json['currency'])!, // 
+    imageLink: json['imageLink'],
+    storeName: json['storeName'],
+    storeLocation: json['storeLocation'],
+    discountedPrice: json['discountedPrice'],
+    description: json['description'],
+  );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'title': title,
+      'price': price,
+      'currency': currency.enumToString(), 
+      'imageLink': imageLink,
+      'storeName': storeName,
+      'storeLocation': storeLocation,
+      'discountedPrice': discountedPrice,
+      'description': description,
+    };
+  }
 
 }  

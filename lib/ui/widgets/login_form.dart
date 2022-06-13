@@ -1,6 +1,6 @@
 // ignore_for_file: unnecessary_this
 
-import 'package:expenses_tracking_app/data/strings.dart';
+import 'package:expenses_tracking_app/consts/strings.dart';
 import 'package:expenses_tracking_app/ui/screens/home_screen.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/custom_text_form_field.dart';
 import 'package:expenses_tracking_app/ui/widgets/labeled_button.dart';

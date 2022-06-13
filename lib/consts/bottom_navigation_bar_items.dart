@@ -1,4 +1,4 @@
-import 'package:expenses_tracking_app/data/strings.dart';
+import 'package:expenses_tracking_app/consts/strings.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigationBarItems {
