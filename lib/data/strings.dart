@@ -25,5 +25,6 @@ class Strings {
   static const seeAll = "See all";
   static const discountedProducts = "Discounted Products"; 
   static const latestProductPrices = "Latest Product Prices";
+  static const favouriteProducts = "Favourite Products";
   
 }

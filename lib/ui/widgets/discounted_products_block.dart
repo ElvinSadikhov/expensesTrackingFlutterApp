@@ -5,16 +5,11 @@ import 'package:expenses_tracking_app/ui/widgets/product_block.dart';
 import 'package:flutter/material.dart'; 
 
 
-class DiscountedProductsBlock extends StatefulWidget {
+class DiscountedProductsBlock extends StatelessWidget {
   const DiscountedProductsBlock({ Key? key }) : super(key: key);
 
   @override
-  State<DiscountedProductsBlock> createState() => _DiscountedProductsBlockState();
-}
-
-class _DiscountedProductsBlockState extends State<DiscountedProductsBlock> {
-  @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context) {
     return const ProductBlock(blockLabel: BlockLabel(title: Strings.discountedProducts,), child: DiscountedProductsListView());
   }
-}
+} 

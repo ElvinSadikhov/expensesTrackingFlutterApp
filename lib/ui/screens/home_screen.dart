@@ -2,15 +2,11 @@
 
 import 'package:expenses_tracking_app/consts/color_consts.dart';
 import 'package:expenses_tracking_app/consts/padding_consts.dart';
-import 'package:expenses_tracking_app/consts/size_consts.dart';
-import 'package:expenses_tracking_app/data/strings.dart';
+import 'package:expenses_tracking_app/consts/size_consts.dart'; 
 import 'package:expenses_tracking_app/providers/product_state.dart'; 
-import 'package:expenses_tracking_app/ui/screens/qr_scanner_screen.dart';
-import 'package:expenses_tracking_app/ui/widgets/discounnted_products_list_view.dart';
-import 'package:expenses_tracking_app/ui/widgets/discounted_products_block.dart';
-import 'package:expenses_tracking_app/ui/widgets/helpers/block_label.dart';
-import 'package:expenses_tracking_app/ui/widgets/helpers/latest_product_prices_block.dart';
-import 'package:expenses_tracking_app/ui/widgets/product_block.dart'; 
+import 'package:expenses_tracking_app/ui/screens/qr_scanner_screen.dart'; 
+import 'package:expenses_tracking_app/ui/widgets/discounted_products_block.dart'; 
+import 'package:expenses_tracking_app/ui/widgets/latest_product_prices_block.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/search_app_bar.dart';
 import 'package:expenses_tracking_app/ui/widgets/custom_bottom_navigation_bar.dart';  
 import 'package:expenses_tracking_app/ui/widgets/product_search.dart';
@@ -42,17 +38,23 @@ class HomeScreen extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
       body: Padding(
         padding: const EdgeInsets.only(left: PaddingConsts.horizontalPadding, right: PaddingConsts.horizontalPadding),
-        child: Column(
-          children: [ 
-            const DiscountedProductsBlock(),
-            WidgetMethods.verticalSpace(20),
-            const LatestProductPricesBlock(),
-          ]
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [ 
+              const DiscountedProductsBlock(),
+              WidgetMethods.verticalSpace(20),
+              const LatestProductPricesBlock(), 
+              
+            ]
+          ),
         ),
       ),
     );
   }
 
+  // TODO: need to change this, (replace the whole productstate with som,e another class in consts for example)
   void setProductShortcutSettings(BuildContext context, double widthOfScreen) {
     Provider.of<ProductState>(context, listen: false).shortcutImageHeight = widthOfScreen * SizeConsts.productShortcutImageHeightWidthRatio;
     Provider.of<ProductState>(context, listen: false).shortcutImageWidth = widthOfScreen * SizeConsts.productShortcutImageHeightWidthRatio;

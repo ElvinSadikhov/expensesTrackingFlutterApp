@@ -11,8 +11,7 @@ import 'package:provider/provider.dart';
 
 class ProductsListView extends StatefulWidget {
 
-  final ProductService productService;
-  
+  final ProductService productService; 
 
   const ProductsListView({ Key? key, required this.productService }) : super(key: key);
 
