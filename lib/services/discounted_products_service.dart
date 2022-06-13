@@ -1,4 +1,4 @@
-import 'package:expenses_tracking_app/data/product.dart';
+import 'package:expenses_tracking_app/models/product.dart';
 import 'package:expenses_tracking_app/models/responses/product_response.dart';
 import 'package:expenses_tracking_app/services/explore_service.dart.dart';
 import 'package:expenses_tracking_app/services/product_service.dart';

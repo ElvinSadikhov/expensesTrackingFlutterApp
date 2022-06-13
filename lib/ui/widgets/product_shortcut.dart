@@ -3,7 +3,7 @@
 import 'package:expenses_tracking_app/consts/color_consts.dart';
 import 'package:expenses_tracking_app/consts/size_consts.dart'; 
 import 'package:expenses_tracking_app/consts/text_style_consts.dart';
-import 'package:expenses_tracking_app/data/product.dart';
+import 'package:expenses_tracking_app/models/product.dart';
 import 'package:expenses_tracking_app/ui/screens/product_screen.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/discount_tag.dart';
 import 'package:expenses_tracking_app/utils/helpers/price_builder.dart';

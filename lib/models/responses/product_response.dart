@@ -1,4 +1,4 @@
-import 'package:expenses_tracking_app/data/product.dart';
+import 'package:expenses_tracking_app/models/product.dart';
 
 class ProductResponse {
 

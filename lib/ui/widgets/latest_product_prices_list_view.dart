@@ -1,8 +1,9 @@
-import 'package:expenses_tracking_app/services/explore_service.dart.dart';
-import 'package:expenses_tracking_app/services/product_service.dart';
-import 'package:expenses_tracking_app/ui/widgets/helpers/products_list_view.dart';
-import 'package:flutter/material.dart';
-
+// ignore_for_file: unnecessary_this
+ 
+import 'package:expenses_tracking_app/models/responses/product_response.dart'; 
+import 'package:expenses_tracking_app/services/explore_service.dart.dart'; 
+import 'package:expenses_tracking_app/ui/widgets/helpers/products_list_view.dart'; 
+import 'package:flutter/material.dart'; 
 
 class LatestProductPricesListView extends StatefulWidget {
   const LatestProductPricesListView({ Key? key }) : super(key: key);
@@ -11,9 +12,26 @@ class LatestProductPricesListView extends StatefulWidget {
   State<LatestProductPricesListView> createState() => _LatestProductPricesListViewState();
 }
 
-class _LatestProductPricesListViewState extends State<LatestProductPricesListView> {
+class _LatestProductPricesListViewState extends State<LatestProductPricesListView> { 
+  ExploreService exploreService = ExploreService();
+  ProductResponse productResponse = ProductResponse(products: []); 
+
   @override
-  Widget build(BuildContext context) { 
-    return ProductsListView(productService: ExploreService(),);
+  void initState() { 
+    super.initState();
+
+    this.fetchData();
+  }
+
+  Future<void> fetchData() async {
+    productResponse = await exploreService.getProducts();
+    setState(() { 
+
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ProductsListView(products: productResponse.products);
   }
 }
