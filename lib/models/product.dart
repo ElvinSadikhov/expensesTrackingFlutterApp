@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_this, avoid_renaming_method_parameters, hash_and_equals
+
 import 'package:expenses_tracking_app/utils/enums/currency.dart';
 import 'package:expenses_tracking_app/utils/extensions/enum_converter.dart'; 
 
@@ -5,7 +7,7 @@ class ProductFields {
 
   ProductFields._();
 
-  static const String id = "_id"; //
+  static const String id = "id"; 
   static const String title = "title";
   static const String price = "price";
   static const String currency = "currency";
@@ -65,5 +67,17 @@ class Product {
       'description': description,
     };
   }
+
+  @override
+  operator ==(Object o) =>
+    o is Product &&
+    this.id == o.id &&
+    this.title == o.title &&
+    this.currency == o.currency &&
+    this.imageLink == o.imageLink &&
+    this.storeName == o.storeName &&
+    this.storeLocation == o.storeLocation &&
+    this.discountedPrice == o.discountedPrice &&
+    this.description == o.description;
 
 }  

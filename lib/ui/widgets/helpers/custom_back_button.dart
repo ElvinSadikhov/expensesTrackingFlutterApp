@@ -17,14 +17,11 @@ class CustomBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: GestureDetector(
-        onTap: () { 
-          Navigator.pop(this.buildContext);
-        },
-        child: Icon(Icons.arrow_back, size: this.buttonSize, color: ColorConsts.black,)
-      ),
+    return GestureDetector(
+      onTap: () { 
+        Navigator.pop(this.buildContext);
+      },
+      child: Icon(Icons.arrow_back, size: this.buttonSize, color: ColorConsts.black,)
     );
   }
 }

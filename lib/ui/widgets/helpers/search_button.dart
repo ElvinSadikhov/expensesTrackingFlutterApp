@@ -12,20 +12,17 @@ class SearchButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerRight,
-      child: IconButton(
-        onPressed: () {
-          showSearch<ProductWidget>(
-            context: context, 
-            delegate: this.searchDelegate,
-          );
-        }, 
-        icon: const Icon(
-          Icons.search_rounded, 
-          size: SizeConsts.kDefaultAppBarButtonSize,
-        )
-      ),
+    return IconButton(
+      onPressed: () {
+        showSearch<ProductWidget>(
+          context: context, 
+          delegate: this.searchDelegate,
+        );
+      }, 
+      icon: const Icon(
+        Icons.search_rounded, 
+        size: SizeConsts.kDefaultAppBarButtonSize,
+      )
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:expenses_tracking_app/consts/padding_consts.dart';
 import 'package:expenses_tracking_app/consts/strings.dart';
 import 'package:expenses_tracking_app/ui/screens/registration_screen.dart';
 import 'package:expenses_tracking_app/ui/widgets/clickable_recommendation_text.dart';
+import 'package:expenses_tracking_app/ui/widgets/helpers/custom_app_bar.dart';
 import 'package:expenses_tracking_app/ui/widgets/search_app_bar.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/login_form.dart';
 import 'package:expenses_tracking_app/utils/helpers/widget_methods.dart';
@@ -13,7 +14,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const SearchAppBar(label: Strings.logIn,),
+      appBar: const CustomAppBar(label: Strings.logIn),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(

@@ -68,5 +68,24 @@ class TextStyleConsts {
     decoration: TextDecoration.lineThrough,
   );
 
+  static const productInfoMainTitleStyle = TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.w800,
+    color: ColorConsts.black, 
+  );
+
+  static const productInfoPriceStyle = TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.w700,
+    color: ColorConsts.black, 
+  );
+
+  static const productInfoStoreNameStyle = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    color: ColorConsts.black,  
+    fontStyle: FontStyle.italic,
+  ); 
+
 
 }

@@ -15,7 +15,10 @@ class FavouriteProductsState with ChangeNotifier {
   }
 
   Future<bool> isFavourite(Product product) async {
-    return await this._favouriteProducts.then((value) => value.contains(product));
+    return await this._favouriteProducts.then((value) {
+      debugPrint(value.toString());
+      return value.contains(product); 
+    });
   }
 
   Future<void> changeState(Product product) async {

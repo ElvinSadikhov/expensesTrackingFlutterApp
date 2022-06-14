@@ -3,9 +3,9 @@
 import 'package:expenses_tracking_app/utils/enums/currency.dart';
 
 
-class PriceTagBuilder { 
+class PriceBuilder { 
 
-  PriceTagBuilder._();
+  PriceBuilder._();
 
   static String build({required double price, required Currency currency}) {
     StringBuffer buffer = StringBuffer();

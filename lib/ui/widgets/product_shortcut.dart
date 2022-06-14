@@ -6,6 +6,7 @@ import 'package:expenses_tracking_app/consts/text_style_consts.dart';
 import 'package:expenses_tracking_app/models/product.dart';
 import 'package:expenses_tracking_app/ui/screens/product_screen.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/discount_tag.dart';
+import 'package:expenses_tracking_app/ui/widgets/helpers/image_box.dart';
 import 'package:expenses_tracking_app/utils/helpers/price_builder.dart';
 import 'package:expenses_tracking_app/utils/helpers/widget_methods.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class ProductShortcut extends StatelessWidget {
   Widget build(BuildContext context) { 
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => const ProductScreen()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen(product: this.product,)));
       },
       child: SizedBox(  
         width: this.containerSize + this.discountTagShift,
@@ -42,19 +43,25 @@ class ProductShortcut extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   WidgetMethods.verticalSpace(this.discountTagShift),
-                  Card( 
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(this.borderRadiusValue),
-                        side: const BorderSide(width: 1.5, color: ColorConsts.black)),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(this.borderRadiusValue),
-                      child: Image.network(this.product.imageLink, 
-                        fit: BoxFit.cover,
-                        height: this.containerSize,
-                        width: this.containerSize,
-                      ),
-                    ),
+                  ImageBox(
+                    borderRadiusValue: this.borderRadiusValue, 
+                    imageLink: this.product.imageLink, 
+                    height: this.containerSize, 
+                    width: this.containerSize
                   ),
+                  // Card( 
+                  //   shape: RoundedRectangleBorder(
+                  //       borderRadius: BorderRadius.circular(this.borderRadiusValue),
+                  //       side: const BorderSide(width: 1.5, color: ColorConsts.black)),
+                  //   child: ClipRRect(
+                  //     borderRadius: BorderRadius.circular(this.borderRadiusValue),
+                  //     child: Image.network(this.product.imageLink, 
+                  //       fit: BoxFit.cover,
+                  //       height: this.containerSize,
+                  //       width: this.containerSize,
+                  //     ),
+                  //   ),
+                  // ),
                   Text(this.product.title, 
                     style: TextStyleConsts.productShortcutTitleStyle,
                   ),
@@ -63,17 +70,17 @@ class ProductShortcut extends StatelessWidget {
                         text: TextSpan(
                           children: <TextSpan>[
                             TextSpan(
-                              text: PriceTagBuilder.build(price: this.product.price, currency: this.product.currency),
+                              text: PriceBuilder.build(price: this.product.price, currency: this.product.currency),
                               style: TextStyleConsts.productShortcutOldPriceStyle,
                             ),
                             TextSpan(
-                              text: PriceTagBuilder.build(price: this.product.discountedPrice!, currency: this.product.currency),
+                              text: PriceBuilder.build(price: this.product.discountedPrice!, currency: this.product.currency),
                               style: TextStyleConsts.productShortcutCurrentPriceStyle 
                             ),
                           ],
                         ),
                       ) 
-                      : Text(PriceTagBuilder.build(price: this.product.price, currency: this.product.currency),
+                      : Text(PriceBuilder.build(price: this.product.price, currency: this.product.currency),
                         style: TextStyleConsts.productShortcutCurrentPriceStyle), 
                 ],
               ),

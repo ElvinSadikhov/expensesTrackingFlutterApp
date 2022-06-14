@@ -24,14 +24,14 @@ class DiscountTag extends StatelessWidget {
       width: this.radius,
       child: Center(
         child: Text(
-          PriceTagBuilder.calculatedDiscountPercentage(actualPrice: this.actualPrice, discountedPrice: this.discountedPrice),
+          PriceBuilder.calculatedDiscountPercentage(actualPrice: this.actualPrice, discountedPrice: this.discountedPrice),
           style: TextStyleConsts.productShortcutDiscountStyle,
         ),
       ),
       decoration: BoxDecoration(
         color: ColorConsts.discountTagColor,
         shape: BoxShape.circle,
-        border: Border.all(width: 1) // TOFO: WRITE IT TO SIZE CONSTS( AND NOT ONLY THIS ONE BUT OTHERS TOO ) 
+        border: Border.all(width: 1) // TODO: WRITE IT TO SIZE CONSTS( AND NOT ONLY THIS ONE BUT OTHERS TOO ) 
       ),
     );
   }

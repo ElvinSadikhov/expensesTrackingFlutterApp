@@ -5,11 +5,13 @@ import 'package:expenses_tracking_app/consts/padding_consts.dart';
 import 'package:expenses_tracking_app/consts/size_consts.dart'; 
 import 'package:expenses_tracking_app/providers/product_state.dart'; 
 import 'package:expenses_tracking_app/ui/screens/qr_scanner_screen.dart'; 
-import 'package:expenses_tracking_app/ui/widgets/discounted_products_block.dart'; 
+import 'package:expenses_tracking_app/ui/widgets/discounted_products_block.dart';
+import 'package:expenses_tracking_app/ui/widgets/helpers/custom_app_bar.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/latest_product_prices_block.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/search_app_bar.dart';
 import 'package:expenses_tracking_app/ui/widgets/custom_bottom_navigation_bar.dart';  
 import 'package:expenses_tracking_app/ui/widgets/product_search.dart';
+import 'package:expenses_tracking_app/ui/widgets/helpers/search_button.dart';
 import 'package:expenses_tracking_app/utils/helpers/widget_methods.dart';  
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -22,8 +24,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {  
     this.setProductShortcutSettings(context, MediaQuery.of(context).size.width);
   
+    // TODO: find a way to solve it better
     return Scaffold( 
-      appBar: SearchAppBar(label: "", searchDelegate: ProductSearch(productList: [])),
+      // appBar: SearchAppBar(label: "", searchDelegate: ProductSearch(productList: [])),
+      appBar: CustomAppBar(rightIcon: SearchButton(searchDelegate: ProductSearch(productList: []))),
       bottomNavigationBar: const CustomBottomNavigationBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: () { 
