@@ -64,14 +64,14 @@ class TextStyleConsts {
   static const productShortcutDiscountStyle = TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.bold,
-    color: ColorConsts.black,
-    decoration: TextDecoration.lineThrough,
+    color: ColorConsts.black, 
   );
 
   static const productInfoMainTitleStyle = TextStyle(
     fontSize: 22,
     fontWeight: FontWeight.w800,
     color: ColorConsts.black, 
+    overflow: TextOverflow.visible
   );
 
   static const productInfoPriceStyle = TextStyle(

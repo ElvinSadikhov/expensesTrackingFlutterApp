@@ -3,10 +3,12 @@
 import 'package:expenses_tracking_app/consts/color_consts.dart';
 import 'package:expenses_tracking_app/consts/padding_consts.dart';
 import 'package:expenses_tracking_app/consts/size_consts.dart'; 
-import 'package:expenses_tracking_app/providers/product_state.dart'; 
+import 'package:expenses_tracking_app/providers/product_shortcut_state.dart'; 
 import 'package:expenses_tracking_app/ui/screens/qr_scanner_screen.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/discounted_products_block.dart';
-import 'package:expenses_tracking_app/ui/widgets/helpers/custom_app_bar.dart'; 
+import 'package:expenses_tracking_app/ui/widgets/favourite_products_block.dart';
+import 'package:expenses_tracking_app/ui/widgets/helpers/custom_app_bar.dart';
+import 'package:expenses_tracking_app/ui/widgets/helpers/qr_scanner_button.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/latest_product_prices_block.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/search_app_bar.dart';
 import 'package:expenses_tracking_app/ui/widgets/custom_bottom_navigation_bar.dart';  
@@ -29,19 +31,10 @@ class HomeScreen extends StatelessWidget {
       // appBar: SearchAppBar(label: "", searchDelegate: ProductSearch(productList: [])),
       appBar: CustomAppBar(rightIcon: SearchButton(searchDelegate: ProductSearch(productList: []))),
       bottomNavigationBar: const CustomBottomNavigationBar(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () { 
-          Navigator.push(
-            context, 
-            MaterialPageRoute(builder: (context) => const QrScannerScreen())
-          );
-        },
-        child: const Icon(Icons.qr_code_scanner_outlined),
-        backgroundColor: ColorConsts.navBarSelectedItemColor, 
-      ),  
+      floatingActionButton: const QRScannerButton(), 
       floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
       body: Padding(
-        padding: const EdgeInsets.only(left: PaddingConsts.horizontalPadding, right: PaddingConsts.horizontalPadding),
+        padding: const EdgeInsets.only(left: PaddingConsts.horizontalPadding, right: PaddingConsts.horizontalPadding, bottom: 20),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           physics: const BouncingScrollPhysics(),
@@ -50,7 +43,8 @@ class HomeScreen extends StatelessWidget {
               const DiscountedProductsBlock(),
               WidgetMethods.verticalSpace(20),
               const LatestProductPricesBlock(), 
-              
+              WidgetMethods.verticalSpace(20),
+              const FavouriteProductsBlock(),
             ]
           ),
         ),
@@ -60,10 +54,10 @@ class HomeScreen extends StatelessWidget {
 
   // TODO: need to change this, (replace the whole productstate with som,e another class in consts for example)
   void setProductShortcutSettings(BuildContext context, double widthOfScreen) {
-    Provider.of<ProductState>(context, listen: false).shortcutImageHeight = widthOfScreen * SizeConsts.productShortcutImageHeightWidthRatio;
-    Provider.of<ProductState>(context, listen: false).shortcutImageWidth = widthOfScreen * SizeConsts.productShortcutImageHeightWidthRatio;
-    Provider.of<ProductState>(context, listen: false).shortcutTextHeight = SizeConsts.productShortcutTextHeight;
-    Provider.of<ProductState>(context, listen: false).shortcutTopPadding = widthOfScreen * SizeConsts.productShortcutTopPaddingRatio;
-    Provider.of<ProductState>(context, listen: false).discountTagRadius = widthOfScreen * SizeConsts.discountTagRadiusRation;
+    Provider.of<ProductShortcutState>(context, listen: false).shortcutImageHeight = widthOfScreen * SizeConsts.productShortcutImageHeightWidthRatio;
+    Provider.of<ProductShortcutState>(context, listen: false).shortcutImageWidth = widthOfScreen * SizeConsts.productShortcutImageHeightWidthRatio;
+    Provider.of<ProductShortcutState>(context, listen: false).shortcutTextHeight = SizeConsts.productShortcutTextHeight;
+    Provider.of<ProductShortcutState>(context, listen: false).shortcutTopPadding = widthOfScreen * SizeConsts.productShortcutTopPaddingRatio;
+    Provider.of<ProductShortcutState>(context, listen: false).discountTagRadius = widthOfScreen * SizeConsts.discountTagRadiusRation;
   }
 }

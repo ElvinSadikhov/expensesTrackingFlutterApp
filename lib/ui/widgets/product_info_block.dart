@@ -3,18 +3,19 @@ import 'package:expenses_tracking_app/consts/text_style_consts.dart';
 import 'package:expenses_tracking_app/models/product.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/image_box.dart';
 import 'package:expenses_tracking_app/utils/helpers/price_builder.dart';
+import 'package:expenses_tracking_app/utils/helpers/widget_methods.dart';
 import 'package:flutter/material.dart';
 
 
 class ProductInfoBlock extends StatefulWidget {
   final Product product;
-  final double height;
-  final double width;
+  final double blockHeight;
+  final double blockWidth;
   
   const ProductInfoBlock({ Key? key, 
     required this.product, 
-    required this.height, 
-    required this.width 
+    required this.blockHeight, 
+    required this.blockWidth 
   }) : super(key: key);
 
   @override
@@ -24,56 +25,76 @@ class ProductInfoBlock extends StatefulWidget {
 class _ProductInfoBlockState extends State<ProductInfoBlock> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Center(
-          child: Text(
-            widget.product.title,  
-            style: TextStyleConsts.productInfoMainTitleStyle,
-          )  
-        ),
-        ImageBox( 
-          imageLink: widget.product.imageLink,
-          height: widget.height,
-          width: widget.width,
-        ),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            Strings.bestPrice 
-              + ": " 
-                + PriceBuilder.build(
-                    price: widget.product.discountedPrice != null 
-                      ? widget.product.discountedPrice!
-                        : widget.product.price, 
-                    currency: widget.product.currency
-                  ),
-            style: TextStyleConsts.productInfoPriceStyle,
-          ), 
-        ),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Column(
-            children: [
-              Text(
-                "\"${widget.product.title}\"",
-                style: TextStyleConsts.productInfoStoreNameStyle,
-              ),
-              Text(
-                Strings.location + ": " + widget.product.storeLocation,
-                style: TextStyleConsts.productInfoStoreNameStyle.copyWith(fontWeight: FontWeight.w500),
-              ),
-            ] 
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Column(
+        children: [
+          Center(
+            child: Text(
+              widget.product.title,  
+              style: TextStyleConsts.productInfoMainTitleStyle,
+            )  
           ),
-        ), 
-        widget.product.description != null
-          ? Text(
-            Strings.description + ": " + widget.product.description!,
-            style: TextStyleConsts.productInfoStoreNameStyle.copyWith(fontWeight: FontWeight.w500),
-          )
-            : Container(),
-        
-      ],
+          WidgetMethods.verticalSpace(10),
+          ImageBox( 
+            imageLink: widget.product.imageLink,
+            height: widget.blockHeight,
+            width: widget.blockWidth,
+          ),
+          WidgetMethods.verticalSpace(10),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Text(
+              (widget.product.discountedPrice != null 
+                ? Strings.discountedPrice
+                  : Strings.price)
+                + ": " 
+                  + PriceBuilder.build(
+                      price: widget.product.discountedPrice != null 
+                        ? widget.product.discountedPrice!
+                          : widget.product.price, 
+                      currency: widget.product.currency
+                    ),
+              style: TextStyleConsts.productInfoPriceStyle,
+            ), 
+          ),
+          WidgetMethods.verticalSpace(10),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "${Strings.store}: \"${widget.product.storeName}\"",
+                  style: TextStyleConsts.productInfoStoreNameStyle,
+                ),
+                WidgetMethods.verticalSpace(10),
+                Text(
+                  "${Strings.location}: \"${widget.product.storeLocation}\"",
+                  style: TextStyleConsts.productInfoStoreNameStyle.copyWith(fontWeight: FontWeight.w500),
+                ),
+              ] 
+            ),
+          ), 
+          WidgetMethods.verticalSpace(10),
+          widget.product.description != null
+            ? RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: "${Strings.description}: ",
+                    style: TextStyleConsts.productInfoStoreNameStyle.copyWith(fontWeight: FontWeight.w500),
+                  ),
+                  TextSpan(
+                    text: widget.product.description, 
+                    style: TextStyleConsts.productInfoStoreNameStyle.copyWith(fontWeight: FontWeight.w400, fontStyle: FontStyle.normal), 
+                  ),
+                ]
+              ),
+            ) 
+              : Container(), 
+        ],
+      ),
     );
   }
 }

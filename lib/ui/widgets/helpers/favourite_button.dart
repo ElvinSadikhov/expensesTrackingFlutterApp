@@ -20,7 +20,7 @@ class _FavouriteButtonState extends State<FavouriteButton> {
   Widget build(BuildContext context) {
     return Consumer<FavouriteProductsState>(
       builder: (context, FavouriteProductsState favouriteProductsState, _) { 
-        return FutureBuilder(
+        return FutureBuilder<bool>(
           future: favouriteProductsState.isFavourite(widget.product),
           builder: (context, snapshot) {
             return GestureDetector(
@@ -29,8 +29,8 @@ class _FavouriteButtonState extends State<FavouriteButton> {
               },
               child: snapshot.hasData
               ? Icon( 
-                snapshot.data == true ? Icons.favorite : Icons.favorite_outline_outlined , 
-                color: snapshot.data == true ? ColorConsts.red : ColorConsts.black,
+                snapshot.data! ? Icons.favorite : Icons.favorite_outline_outlined , 
+                color: snapshot.data! ? ColorConsts.red : ColorConsts.black,
                 size: SizeConsts.kDefaultAppBarButtonSize,
               ) 
                 : Container(),

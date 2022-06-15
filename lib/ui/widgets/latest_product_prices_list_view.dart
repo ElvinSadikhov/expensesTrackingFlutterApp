@@ -14,7 +14,7 @@ class LatestProductPricesListView extends StatefulWidget {
 
 class _LatestProductPricesListViewState extends State<LatestProductPricesListView> { 
   ExploreService exploreService = ExploreService();
-  ProductResponse productResponse = ProductResponse(products: []); 
+  ProductResponse? productResponse; 
 
   @override
   void initState() { 
@@ -25,13 +25,16 @@ class _LatestProductPricesListViewState extends State<LatestProductPricesListVie
 
   Future<void> fetchData() async {
     productResponse = await exploreService.getProducts();
-    setState(() { 
+    
+    if(this.mounted) {
+      setState(() { 
 
-    });
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return ProductsListView(products: productResponse.products);
+    return ProductsListView(products: productResponse != null ? productResponse!.products : null);
   }
 }

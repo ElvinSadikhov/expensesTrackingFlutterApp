@@ -23,10 +23,15 @@ class ProductScreen extends StatelessWidget {
       appBar: CustomAppBar(leftIcon: CustomBackButton(buildContext: context), rightIcon: FavouriteButton(product: this.product),), // TODO: check it
       body: Padding(
         padding: const EdgeInsets.only(left: PaddingConsts.horizontalPadding, right: PaddingConsts.horizontalPadding),
-        child: Column(
-          children: [
-            ProductInfoBlock(product: this.product, height: sizeOfScreen.width * 0.8 / 1.5, width: sizeOfScreen.width * 0.8)
-          ],
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              ProductInfoBlock(product: this.product, blockHeight: sizeOfScreen.width, blockWidth: sizeOfScreen.width),
+
+            ],
+          ),
         ),
       ),
     );

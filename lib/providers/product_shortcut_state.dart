@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 
 // TODO: delete this provider as there is NO changing state at all
 // instead we could create ProductSizeConsts in consts folder
-class ProductState with ChangeNotifier{
+class ProductShortcutState with ChangeNotifier{
 
   // final List<Product> _productList = Products.products; 
   final double _shortcutBorderRadius = SizeConsts.productShortcutBorderRadius; 
@@ -15,8 +15,7 @@ class ProductState with ChangeNotifier{
   double? _shortcutImageWidth;
   double? _shortcutTextHeight;
   double? _discountTagShift;
-  double? _discountTagRadius; 
-  
+  double? _discountTagRadius;  
 
   // List<Product> get productList => _productList;
   double? get shortcutBorderRadius => _shortcutBorderRadius;

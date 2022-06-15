@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:expenses_tracking_app/consts/strings.dart';
+import 'package:expenses_tracking_app/ui/screens/discounted_products_screen.dart';
 import 'package:expenses_tracking_app/ui/widgets/discounnted_products_list_view.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/block_label.dart';
 import 'package:expenses_tracking_app/ui/widgets/product_block.dart';
@@ -10,6 +13,17 @@ class DiscountedProductsBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ProductBlock(blockLabel: BlockLabel(title: Strings.discountedProducts,), child: DiscountedProductsListView());
+    return ProductBlock(
+      blockLabel: BlockLabel(
+        title: Strings.discountedProducts, 
+        onTap: () {
+          Navigator.push(
+            context, 
+            MaterialPageRoute(builder: (context) => DiscountedProductsScreen())
+          );
+        } 
+      ), 
+      child: DiscountedProductsListView()
+    );
   }
 } 

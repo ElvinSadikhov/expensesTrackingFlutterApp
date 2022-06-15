@@ -48,20 +48,7 @@ class ProductShortcut extends StatelessWidget {
                     imageLink: this.product.imageLink, 
                     height: this.containerSize, 
                     width: this.containerSize
-                  ),
-                  // Card( 
-                  //   shape: RoundedRectangleBorder(
-                  //       borderRadius: BorderRadius.circular(this.borderRadiusValue),
-                  //       side: const BorderSide(width: 1.5, color: ColorConsts.black)),
-                  //   child: ClipRRect(
-                  //     borderRadius: BorderRadius.circular(this.borderRadiusValue),
-                  //     child: Image.network(this.product.imageLink, 
-                  //       fit: BoxFit.cover,
-                  //       height: this.containerSize,
-                  //       width: this.containerSize,
-                  //     ),
-                  //   ),
-                  // ),
+                  ), 
                   Text(this.product.title, 
                     style: TextStyleConsts.productShortcutTitleStyle,
                   ),
@@ -70,7 +57,7 @@ class ProductShortcut extends StatelessWidget {
                         text: TextSpan(
                           children: <TextSpan>[
                             TextSpan(
-                              text: PriceBuilder.build(price: this.product.price, currency: this.product.currency),
+                              text: PriceBuilder.build(price: this.product.price, currency: this.product.currency) + " ",
                               style: TextStyleConsts.productShortcutOldPriceStyle,
                             ),
                             TextSpan(

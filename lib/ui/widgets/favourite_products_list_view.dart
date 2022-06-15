@@ -1,5 +1,7 @@
 // ignore_for_file: unnecessary_this
   
+import 'package:expenses_tracking_app/models/product.dart';
+import 'package:expenses_tracking_app/providers/favourite_products_state.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/products_list_view.dart'; 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart'; 
@@ -12,15 +14,20 @@ class FavouriteProductsListView extends StatefulWidget {
 }
 
 class _FavouriteProductsListViewState extends State<FavouriteProductsListView> {   
-
-  // TODO: write a provider for favourite products ЖЕЛАТЕЛЬНО using database
+ 
   @override
-  Widget build(BuildContext context) {
-    return Container();
-    // return Consumer<FavouriteProducts>(
-    //   builder: (context, FavouriteProducts favouriteProducts, _) {
-    //     return ProductsListView(products: favouriteProducts.products);
-    //   }, 
-    // );
+  Widget build(BuildContext context) { 
+    return Consumer<FavouriteProductsState>(
+      builder: (context, FavouriteProductsState favouriteProductsState, _) {
+        return FutureBuilder<List<Product>>(
+          future: favouriteProductsState.favourites,
+          builder: ((context, snapshot) {
+            return snapshot.hasData
+              ? ProductsListView(products: snapshot.data!)
+                : Container();
+          }), 
+        );
+      }, 
+    );
   }
 }

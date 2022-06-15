@@ -1,6 +1,6 @@
 // ignore_for_file: unnecessary_this
  
-import 'package:expenses_tracking_app/utils/enums/currency.dart';
+import 'package:expenses_tracking_app/utils/enums/currency.dart';  
 
 
 class PriceBuilder { 
@@ -32,10 +32,46 @@ class PriceBuilder {
 
     return "-${priceDrop.toStringAsFixed(2)} %";
   }
+ 
+  double changeCurrency({required double price, required Currency curCurrency, required Currency newCurrency}) { 
+    const double manatInDollars = 0.59;
+    const double manatInEuros = 0.56;
+    const double dollarInEuros = 0.95;
 
-  // idk need to think about this one !!!
-  static void changeCurrency({required double price, required Currency curCurrency, required Currency newCurrency}) {
-    // TODO: implement later MAYBE 
-  }  
+    late double coefficient;
+    switch(curCurrency) {
+      case Currency.MANAT:
+        switch(newCurrency) {
+          case Currency.DOLLAR:
+            coefficient = manatInDollars;
+            break;
+          case Currency.EURO:
+            coefficient = manatInEuros;
+            break;
+        }
+        break;  
+      case Currency.DOLLAR:
+        switch(newCurrency) {
+          case Currency.MANAT:
+            coefficient = 1 / manatInDollars;
+            break;
+          case Currency.EURO:
+            coefficient = dollarInEuros;
+            break;
+        } 
+        break;
+      case Currency.EURO:
+        switch(newCurrency) {
+          case Currency.MANAT:
+            coefficient = 1 / manatInEuros;
+            break;
+          case Currency.DOLLAR:
+            coefficient = 1 / dollarInEuros;
+            break;
+        } 
+        break;  
+    }
 
+    return price * coefficient; 
+  }   
 }
