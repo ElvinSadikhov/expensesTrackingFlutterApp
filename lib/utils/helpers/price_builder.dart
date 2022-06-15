@@ -48,6 +48,9 @@ class PriceBuilder {
           case Currency.EURO:
             coefficient = manatInEuros;
             break;
+          case Currency.MANAT:
+            coefficient = 1; 
+            break;
         }
         break;  
       case Currency.DOLLAR:
@@ -58,6 +61,9 @@ class PriceBuilder {
           case Currency.EURO:
             coefficient = dollarInEuros;
             break;
+          case Currency.DOLLAR:
+            coefficient = 1;
+            break;
         } 
         break;
       case Currency.EURO:
@@ -67,6 +73,9 @@ class PriceBuilder {
             break;
           case Currency.DOLLAR:
             coefficient = 1 / dollarInEuros;
+            break;
+          case Currency.EURO:
+            coefficient = 1;
             break;
         } 
         break;  
