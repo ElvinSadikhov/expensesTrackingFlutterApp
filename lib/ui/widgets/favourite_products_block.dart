@@ -1,4 +1,5 @@
 import 'package:expenses_tracking_app/consts/strings.dart';
+import 'package:expenses_tracking_app/ui/screens/favourite_products_screen.dart';
 import 'package:expenses_tracking_app/ui/widgets/favourite_products_list_view.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/block_label.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/product_block.dart';
@@ -10,6 +11,17 @@ class FavouriteProductsBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ProductBlock(blockLabel: BlockLabel(title: Strings.favouriteProducts,), child: FavouriteProductsListView()); 
+    return ProductBlock(
+      blockLabel: BlockLabel(
+        title: Strings.favouriteProducts,
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const FavouriteProductsScreen())
+          );
+        },
+      ), 
+      productListView: const FavouriteProductsListView()
+    ); 
   }
 }

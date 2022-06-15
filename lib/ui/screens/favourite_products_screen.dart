@@ -2,7 +2,7 @@ import 'package:expenses_tracking_app/consts/padding_consts.dart';
 import 'package:expenses_tracking_app/consts/strings.dart';
 import 'package:expenses_tracking_app/models/product.dart';
 import 'package:expenses_tracking_app/providers/favourite_products_state.dart';
-import 'package:expenses_tracking_app/providers/product_shortcut_state.dart';
+import 'package:expenses_tracking_app/consts/product_shortcut_consts.dart';
 import 'package:expenses_tracking_app/ui/widgets/custom_bottom_navigation_bar.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/custom_app_bar.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/custom_back_button.dart';
@@ -39,19 +39,17 @@ class _FavouriteProductsScreenState extends State<FavouriteProductsScreen> {
           builder: (context, FavouriteProductsState favouriteProductsState, _) {
             return FutureBuilder<List<Product>>(
               future: favouriteProductsState.favourites,
-              builder: (context, snapshot) {
-                return Container();
-                // TODO: SOLVE IT AFTER CHANGING PRODUCT SHORTCUT PROVIDER
-                // return snapshot.hasData 
-                // ? ProductsGridView(
-                //   numberOfColumns: 2,
-                //   products: snapshot.data!, 
-                //   height: Provider.of<ProductShortcutState>(context, listen: false).shortcutImageHeight! , // productShortcutState.shortcutImageHeight! + productShortcutState.discountTagShift! + 50,
-                //   shortcutImageHeight: productShortcutState.shortcutImageHeight!,
-                //   discountTagShift: productShortcutState.discountTagShift!,
-                //   discountTagRadius: productShortcutState.discountTagRadius!,
-                // ) 
-                  // : const Center(child: CircularProgressIndicator()); 
+              builder: (context, snapshot) { 
+                return snapshot.hasData 
+                ? ProductsGridView(
+                  numberOfColumns: 2,
+                  products: snapshot.data!, 
+                  height: ProductShortcutConsts.totalWidgetHeight! ,  
+                  shortcutImageHeight: ProductShortcutConsts.shortcutImageHeight!,
+                  discountTagShift: ProductShortcutConsts.discountTagShift!,
+                  discountTagRadius: ProductShortcutConsts.discountTagRadius!,
+                ) 
+                : const Center(child: CircularProgressIndicator()); 
               } 
             ); 
           } 

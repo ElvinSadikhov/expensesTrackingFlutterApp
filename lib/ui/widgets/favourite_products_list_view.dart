@@ -24,7 +24,7 @@ class _FavouriteProductsListViewState extends State<FavouriteProductsListView> {
           builder: ((context, snapshot) {
             return snapshot.hasData
               ? ProductsListView(products: snapshot.data!)
-                : Container();
+              : Container();
           }), 
         );
       }, 

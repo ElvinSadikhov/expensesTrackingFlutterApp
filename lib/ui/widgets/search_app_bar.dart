@@ -33,48 +33,4 @@ class SearchAppBar extends StatelessWidget {
       rightIcon: SearchButton(searchDelegate: this.searchDelegate),
     );
   }
-}
-
-// class SearchAppBar1 extends StatelessWidget implements PreferredSizeWidget{
-
-//   final BuildContext? buildContext;
-//   final SearchDelegate<ProductWidget>? searchDelegate;
-//   final String label;
-//   final double fontSize;
-//   final Color backgroundColor;   
-
-//   const SearchAppBar1({Key? key,
-//     required this.label,
-//     this.buildContext, 
-//     this.searchDelegate, 
-//     this.fontSize = FontSizeConsts.kDefaultAppBarLabelSize, 
-//     this.backgroundColor = ColorConsts.white,  
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-
-//     Size sizeOfScreen = MediaQuery.of(context).size; 
-    
-//     return SafeArea(
-//       child: Container(
-//         color: this.backgroundColor,
-//         height: this.fontSize + 30,
-//         width: sizeOfScreen.width,
-//         child: Padding(
-//           padding: const EdgeInsets.symmetric(horizontal: PaddingConsts.horizontalPadding),
-//           child: Stack(
-//             children: [
-//               this.buildContext != null ? CustomBackButton(buildContext: this.buildContext!) : Container(),
-//               this.searchDelegate != null ? SearchButton(searchDelegate: this.searchDelegate!) : Container(),
-//               AppBarLabelWidget(label: this.label, fontSize: this.fontSize), 
-//             ] 
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-
-//   @override 
-//   Size get preferredSize => const Size.fromHeight(SizeConsts.appBarHeight);
-// }
+} 

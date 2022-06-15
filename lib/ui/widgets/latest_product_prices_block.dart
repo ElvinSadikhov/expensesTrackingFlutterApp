@@ -20,7 +20,7 @@ class LatestProductPricesBlock extends StatelessWidget {
           );
         }
       ), 
-      child: const LatestProductPricesListView()
+      productListView: const LatestProductPricesListView()
     ); 
   }
 } 

@@ -23,7 +23,7 @@ class DiscountedProductsBlock extends StatelessWidget {
           );
         } 
       ), 
-      child: DiscountedProductsListView()
+      productListView: DiscountedProductsListView()
     );
   }
 } 

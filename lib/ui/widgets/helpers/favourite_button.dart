@@ -33,7 +33,7 @@ class _FavouriteButtonState extends State<FavouriteButton> {
                 color: snapshot.data! ? ColorConsts.red : ColorConsts.black,
                 size: SizeConsts.kDefaultAppBarButtonSize,
               ) 
-                : Container(),
+              : Container(),
             );
           }
         ); 

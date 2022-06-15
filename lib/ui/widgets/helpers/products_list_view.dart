@@ -1,10 +1,9 @@
 // ignore_for_file: unnecessary_this
   
 import 'package:expenses_tracking_app/models/product.dart';
-import 'package:expenses_tracking_app/providers/product_shortcut_state.dart'; 
+import 'package:expenses_tracking_app/consts/product_shortcut_consts.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/product_shortcut.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter/material.dart'; 
 
 class ProductsListView extends StatelessWidget {
 
@@ -14,29 +13,25 @@ class ProductsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ProductShortcutState>(
-      builder: (context, ProductShortcutState productState, _) {
-        return Padding(
-          padding: const EdgeInsets.only(top: 10),
-          child: this.products != null
-            ? SizedBox( 
-            height: productState.shortcutImageHeight! + productState.discountTagShift! + productState.shortcutTextHeight!, 
-            child: ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: this.products!.length,
-              itemBuilder: (BuildContext context, int index) => 
-                ProductShortcut(
-                  product: this.products![index], 
-                  containerSize: productState.shortcutImageHeight!, 
-                  discountTagRadius: productState.discountTagRadius!, 
-                  discountTagShift: productState.discountTagShift!
-                )
-              ), 
-          )
-            : const CircularProgressIndicator(),
-        );
-      }, 
+    return Padding(
+      padding: const EdgeInsets.only(top: 10),
+      child: this.products != null
+        ? SizedBox( 
+        height: ProductShortcutConsts.totalWidgetHeight!,  
+        child: ListView.builder(
+          physics: const BouncingScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          itemCount: this.products!.length,
+          itemBuilder: (BuildContext context, int index) => 
+            ProductShortcut(
+              product: this.products![index], 
+              containerSize: ProductShortcutConsts.shortcutImageHeight!, 
+              discountTagRadius: ProductShortcutConsts.discountTagRadius!, 
+              discountTagShift: ProductShortcutConsts.discountTagShift!
+            )
+          ), 
+      )
+      : const CircularProgressIndicator(),
     );  
   }
 } 

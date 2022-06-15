@@ -79,7 +79,8 @@ class ProductShortcut extends StatelessWidget {
                   actualPrice: this.product.price, 
                   discountedPrice: this.product.discountedPrice!, 
                   radius: this.discountTagRadius, 
-                ) : Container(),
+                ) 
+                : Container(),
             ), 
           ],
         ),

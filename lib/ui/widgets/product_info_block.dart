@@ -92,7 +92,7 @@ class _ProductInfoBlockState extends State<ProductInfoBlock> {
                 ]
               ),
             ) 
-              : Container(), 
+            : Container(), 
         ],
       ),
     );
