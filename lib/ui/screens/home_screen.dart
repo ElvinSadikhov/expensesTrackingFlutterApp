@@ -3,34 +3,61 @@
 import 'package:expenses_tracking_app/consts/padding_consts.dart';
 import 'package:expenses_tracking_app/consts/size_consts.dart'; 
 import 'package:expenses_tracking_app/consts/product_shortcut_consts.dart';  
+import 'package:expenses_tracking_app/models/responses/product_response.dart';
+import 'package:expenses_tracking_app/services/explore_service.dart.dart';  
 import 'package:expenses_tracking_app/ui/widgets/discounted_products_block.dart';
 import 'package:expenses_tracking_app/ui/widgets/favourite_products_block.dart';
-import 'package:expenses_tracking_app/ui/widgets/helpers/custom_app_bar.dart';
+import 'package:expenses_tracking_app/ui/widgets/custom_app_bar.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/qr_scanner_button.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/latest_product_prices_block.dart';  
 import 'package:expenses_tracking_app/ui/widgets/custom_bottom_navigation_bar.dart';  
-import 'package:expenses_tracking_app/ui/widgets/product_search.dart';
-import 'package:expenses_tracking_app/ui/widgets/helpers/search_button.dart';
+import 'package:expenses_tracking_app/ui/widgets/helpers/product_search.dart';
+import 'package:expenses_tracking_app/ui/widgets/helpers/search_button.dart'; 
 import 'package:expenses_tracking_app/utils/helpers/widget_methods.dart';  
 import 'package:flutter/material.dart'; 
 
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({ Key? key }) : super(key: key); 
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({ Key? key }) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  ExploreService exploreService = ExploreService();
+  ProductResponse? productResponse; 
+
+  @override
+  void initState() { 
+    super.initState();
+
+    fetchData();
+  }
+  
+  Future<void> fetchData() async {
+    this.productResponse = await this.exploreService.getProducts(); 
+
+    if(this.mounted) {
+      setState(() { 
+
+      });
+    } 
+  }
 
   @override
   Widget build(BuildContext context) {  
-    this._initProductShortcutConsts(context, MediaQuery.of(context).size.width);
-  
+
+    this._initProductShortcutConsts(context, MediaQuery.of(context).size.width); 
     
     return Scaffold( 
       // TODO: find a way to solve appBar thing better 
-      appBar: CustomAppBar(rightIcon: SearchButton(searchDelegate: ProductSearch(productList: []))), // appBar: SearchAppBar(label: "", searchDelegate: ProductSearch(productList: [])),
+      appBar: CustomAppBar(rightIcon: SearchButton(searchDelegate: ProductSearch(productList: this.productResponse != null ? this.productResponse!.products : []))), // appBar: SearchAppBar(label: "", searchDelegate: ProductSearch(productList: [])),
       bottomNavigationBar: const CustomBottomNavigationBar(),
       floatingActionButton: const QRScannerButton(), 
       floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
       body: Padding(
-        padding: const EdgeInsets.only(left: PaddingConsts.horizontalPadding, right: PaddingConsts.horizontalPadding, bottom: 20),
+        padding: const EdgeInsets.only(left: PaddingConsts.horizontalPadding, right: PaddingConsts.horizontalPadding),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           physics: const BouncingScrollPhysics(),
@@ -56,3 +83,4 @@ class HomeScreen extends StatelessWidget {
     ProductShortcutConsts.discountTagRadius = widthOfScreen * SizeConsts.discountTagRadiusRation;
   }
 }
+ 

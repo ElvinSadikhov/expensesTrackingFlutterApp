@@ -3,7 +3,7 @@
 import 'package:expenses_tracking_app/consts/padding_consts.dart';
 import 'package:expenses_tracking_app/models/product.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/custom_back_button.dart';
-import 'package:expenses_tracking_app/ui/widgets/helpers/custom_app_bar.dart';
+import 'package:expenses_tracking_app/ui/widgets/custom_app_bar.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/favourite_button.dart';
 import 'package:expenses_tracking_app/ui/widgets/product_info_block.dart';
 import 'package:flutter/material.dart';

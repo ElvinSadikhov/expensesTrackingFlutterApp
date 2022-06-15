@@ -3,7 +3,7 @@ import 'package:expenses_tracking_app/consts/strings.dart';
 import 'package:expenses_tracking_app/ui/screens/login_screen.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/clickable_recommendation_text.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/custom_back_button.dart';
-import 'package:expenses_tracking_app/ui/widgets/helpers/custom_app_bar.dart';
+import 'package:expenses_tracking_app/ui/widgets/custom_app_bar.dart';
 import 'package:expenses_tracking_app/ui/widgets/search_app_bar.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/login_form.dart';
 import 'package:expenses_tracking_app/ui/widgets/registration_form.dart';

@@ -5,8 +5,7 @@ import 'package:expenses_tracking_app/consts/product_shortcut_consts.dart';
 import 'package:expenses_tracking_app/ui/widgets/product_shortcut.dart';
 import 'package:flutter/material.dart'; 
 
-class ProductsListView extends StatelessWidget {
-
+class ProductsListView extends StatelessWidget { 
   final List<Product>? products;
 
   const ProductsListView({ Key? key, required this.products }) : super(key: key);
@@ -16,6 +15,7 @@ class ProductsListView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
       child: this.products != null
+      ? this.products!.isNotEmpty
         ? SizedBox( 
         height: ProductShortcutConsts.totalWidgetHeight!,  
         child: ListView.builder(
@@ -30,8 +30,9 @@ class ProductsListView extends StatelessWidget {
               discountTagShift: ProductShortcutConsts.discountTagShift!
             )
           ), 
-      )
-      : const CircularProgressIndicator(),
+        )
+        : Text("Not found") 
+      : const CircularProgressIndicator()
     );  
   }
 } 

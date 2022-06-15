@@ -1,12 +1,12 @@
 // ignore_for_file: unnecessary_this
 
-import 'package:expenses_tracking_app/consts/size_consts.dart'; 
-import 'package:expenses_tracking_app/ui/widgets/product_widget.dart';
+import 'package:expenses_tracking_app/consts/size_consts.dart';
+import 'package:expenses_tracking_app/ui/widgets/product_shortcut.dart';  
 import 'package:flutter/material.dart';
 
 
 class SearchButton extends StatelessWidget {
-  final SearchDelegate<ProductWidget> searchDelegate;
+  final SearchDelegate<ProductShortcut?> searchDelegate;
   
   const SearchButton({ Key? key, required this.searchDelegate }) : super(key: key);
 
@@ -14,7 +14,7 @@ class SearchButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        showSearch<ProductWidget>(
+        showSearch<ProductShortcut?>(
           context: context, 
           delegate: this.searchDelegate,
         );
