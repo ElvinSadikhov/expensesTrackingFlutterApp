@@ -1,20 +1,29 @@
 // ignore_for_file: unnecessary_this
-
+ 
 import 'package:flutter/material.dart';
 
 
 class BottomNavigationBarState with ChangeNotifier {
   List<BottomNavigationBarItem> navigataionItems; 
-  int selectedItemIndex;
+  List<Widget> screens;
+  int selectedItemIndex; 
 
   BottomNavigationBarState({
     required this.navigataionItems,
-    this.selectedItemIndex = 0, 
+    required this.screens,
+    this.selectedItemIndex = 0,  
   });
 
-  void updateSelectedItemIndex(int index) {
-    this.selectedItemIndex = index;
+  void updateSelectedItemIndex({required int index}) {
+    this.selectedItemIndex = index; 
 
     notifyListeners();
   } 
+
+  void changeScreen({required BuildContext context, required int index}) {
+    Navigator.push(
+      context, 
+      MaterialPageRoute(builder: (context) => screens[index])
+    );
+  }
 }

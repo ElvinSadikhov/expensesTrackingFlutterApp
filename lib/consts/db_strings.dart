@@ -2,8 +2,10 @@ class DBStrings {
 
   DBStrings._();
 
-  static const dbFileName = "favouriteProducts.db";
-  static const dbTableName = "favouriteProducts";
+  static const dbFavouritesFileName = "favouritesTest.db";
+  static const dbCartFileName = "cartTest.db";
+  static const dbFavouritesTableName = "favouriteProducts";
+  static const dbCartTableName = "cartTesting";
 
   static const idType = "INTEGER PRIMARY KEY"; 
   static const integerType = "INTEGER";

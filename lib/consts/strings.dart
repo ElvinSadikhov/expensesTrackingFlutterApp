@@ -31,8 +31,8 @@ class Strings {
   static const discountedPrice = "Discounted Price";
   static const location = "Location";
   static const description = "Description";
-  static const store = "Store";
-
+  static const store = "Store"; 
   static const pricesInOtherStores = "Prices in other stores: ";
+  static const addToCart = "Add To Cart";
   
 }

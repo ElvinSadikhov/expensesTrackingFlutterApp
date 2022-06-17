@@ -24,7 +24,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           selectedItemColor: ColorConsts.navBarSelectedItemColor,
           currentIndex: bottomNavigationBarState.selectedItemIndex,
           onTap: (index) {
-            bottomNavigationBarState.updateSelectedItemIndex(index);
+            bottomNavigationBarState.updateSelectedItemIndex(index: index);
+            bottomNavigationBarState.changeScreen(context: context, index: index);
           },
           type: BottomNavigationBarType.fixed,
         );

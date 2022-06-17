@@ -2,39 +2,38 @@
 
 import 'package:expenses_tracking_app/consts/db_strings.dart';
 import 'package:expenses_tracking_app/models/product.dart';
-import 'package:sqflite/sqflite.dart'; 
-import 'package:path/path.dart';
+import 'package:expenses_tracking_app/models/purhcase.dart';
 import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart'; 
+import 'package:path/path.dart'; 
 
 
-class DatabaseHelper{
+class CartDataHelper {
 
-  static final DatabaseHelper instanse = DatabaseHelper._init();
+  static final CartDataHelper instanse = CartDataHelper._init();
 
   static Database? _database;
 
-  DatabaseHelper._init();
+  CartDataHelper._init();
 
   Future<Database> get database async {
     if(_database != null) return _database!;
 
-    _database = await _initDB(DBStrings.dbFileName);
+    _database = await _initDB(DBStrings.dbCartFileName);
     
     return _database!; 
   }
 
-  Future<Database> _initDB(String filePath) async {
-    debugPrint("initDB");
-
+  Future<Database> _initDB(String filePath) async {   
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
 
     return await openDatabase(path, version: 1, onCreate: _createDB);
   }
 
-  Future _createDB(Database db, int version) async { 
+  Future _createDB(Database db, int version) async {  
     await db.execute('''
-CREATE TABLE IF NOT EXISTS ${DBStrings.dbTableName} (
+CREATE TABLE IF NOT EXISTS ${DBStrings.dbCartTableName} (
   ${ProductFields.id} ${DBStrings.idType},
   ${ProductFields.title} ${DBStrings.textType} ${DBStrings.notNull},
   ${ProductFields.price} ${DBStrings.numericType} ${DBStrings.notNull},
@@ -43,44 +42,45 @@ CREATE TABLE IF NOT EXISTS ${DBStrings.dbTableName} (
   ${ProductFields.storeName} ${DBStrings.textType} ${DBStrings.notNull},
   ${ProductFields.storeLocation} ${DBStrings.textType} ${DBStrings.notNull},
   ${ProductFields.discountedPrice} ${DBStrings.numericType},
-  ${ProductFields.description} ${DBStrings.textType}
+  ${ProductFields.description} ${DBStrings.textType},
+  ${PurchaseFields.count} ${DBStrings.integerType} ${DBStrings.notNull}
 ); 
     ''');  
   }
     
 
-  Future<List<Product>> read() async {
+  Future<List<Purchase>> read() async {
     final db = await instanse.database; 
 
-    var products = await db.query(DBStrings.dbTableName);
+    var purchases = await db.query(DBStrings.dbCartTableName);
 
     this.close();
-    return products.isNotEmpty
-      ? products.map((pr) => Product.fromJson(pr)).toList()
+    return purchases.isNotEmpty
+      ? purchases.map((purchase) => Purchase.fromJson(purchase)).toList()
         : []; 
   }
 
-  Future<int> add(Product product) async {
+  Future<int> add(Purchase purchase) async {
     final db = await instanse.database; 
-    int result = await db.insert(DBStrings.dbTableName, product.toJson());
+    int result = await db.insert(DBStrings.dbCartTableName, purchase.toJson());
 
     this.close(); 
     return result;
     
   }
 
-  Future<int> remove(int id) async {
+  Future<int> remove(Purchase purchase) async {
     final db = await instanse.database;
-    int result = await db.delete(DBStrings.dbTableName, where: "${ProductFields.id} = ?", whereArgs: [id]);
+    int result = await db.delete(DBStrings.dbCartTableName, where: "${ProductFields.id} = ?", whereArgs: [purchase.product.id]);
 
     this.close();
     return result;
   }
 
-  Future<int> update(Product product) async {
+  Future<int> update(Purchase purchase) async {
     final db = await instanse.database;
 
-    int result = await db.update(DBStrings.dbTableName, product.toJson(), where: "${ProductFields.id} = ?", whereArgs: [product.id]);
+    int result = await db.update(DBStrings.dbCartTableName, purchase.toJson(), where: "${ProductFields.id} = ?", whereArgs: [purchase.product.id]);
 
     this.close();
     return result;
