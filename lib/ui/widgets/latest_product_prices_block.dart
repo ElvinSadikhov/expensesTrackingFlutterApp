@@ -31,7 +31,7 @@ class _LatestProductPricesBlockState extends State<LatestProductPricesBlock> {
   }
   
   Future<void> fetchData() async {
-    this.productResponse = await this.exploreService.getProducts();
+    this.productResponse = await this.exploreService.getAllProducts();
     this.products = this.productResponse != null ? this.productResponse!.products : null;
 
     if(this.mounted) {

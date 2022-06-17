@@ -33,7 +33,7 @@ class _DiscountedProductsBlockState extends State<DiscountedProductsBlock> {
   }
   
   Future<void> fetchData() async {
-    this.productResponse = await this.discountedProductsService.getProducts();
+    this.productResponse = await this.discountedProductsService.getDiscountedProducts();
     this.products = this.productResponse != null ? this.productResponse!.products : null;
 
     if(this.mounted) {

@@ -12,4 +12,6 @@ class SizeConsts {
   static const double productShortcutTextHeight = 60; // an estimation
   static const double discountTagRadiusRation = 0.4 / 3;
 
+  static const double differenceIndicatingIconSize = 25;
+
 }

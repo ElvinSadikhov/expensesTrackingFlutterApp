@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   
   Future<void> fetchData() async {
-    this.productResponse = await this.exploreService.getProducts(); 
+    this.productResponse = await this.exploreService.getAllProducts(); 
 
     if(this.mounted) {
       setState(() { 

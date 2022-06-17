@@ -32,8 +32,13 @@ class PriceBuilder {
 
     return "-${priceDrop.toStringAsFixed(2)} %";
   }
+
+  static double calculateDifferenceInPercentage({required double actualPrice, required double anotherPrice}) {
+    // if new price is higher, then the result will be positive, otherwise negative
+    return double.parse(((anotherPrice - actualPrice) / actualPrice * 100).toStringAsFixed(2));
+  }
  
-  double changeCurrency({required double price, required Currency curCurrency, required Currency newCurrency}) { 
+  static double changeCurrency({required double price, required Currency curCurrency, required Currency newCurrency}) { 
     const double manatInDollars = 0.59;
     const double manatInEuros = 0.56;
     const double dollarInEuros = 0.95;
