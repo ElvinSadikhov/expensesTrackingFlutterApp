@@ -19,6 +19,8 @@ class ProductShortcut extends StatelessWidget {
   final double discountTagRadius;
   final double discountTagShift; 
 
+  // TODO: BURA YAZMAQ OLARI
+
   const ProductShortcut({ Key? key, 
     required this.product,   
     required this.containerSize, 

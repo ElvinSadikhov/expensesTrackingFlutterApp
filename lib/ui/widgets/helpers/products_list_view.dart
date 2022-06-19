@@ -31,7 +31,7 @@ class ProductsListView extends StatelessWidget {
             )
           ), 
         )
-        : Text("Not found") 
+        : Text("Not found") // TODO: for test 
       : const CircularProgressIndicator()
     );  
   }

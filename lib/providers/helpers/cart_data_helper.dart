@@ -31,7 +31,7 @@ class CartDataHelper {
     return await openDatabase(path, version: 1, onCreate: _createDB);
   }
 
-  Future _createDB(Database db, int version) async {  
+  Future<void> _createDB(Database db, int version) async {  
     await db.execute('''
 CREATE TABLE IF NOT EXISTS ${DBStrings.dbCartTableName} (
   ${ProductFields.id} ${DBStrings.idType},

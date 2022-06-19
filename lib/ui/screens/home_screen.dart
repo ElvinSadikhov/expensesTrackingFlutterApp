@@ -50,8 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     this._initProductShortcutConsts(context, MediaQuery.of(context).size.width); 
     
-    return Scaffold( 
-      // TODO: find a way to solve appBar thing better 
+    return Scaffold(  
       appBar: CustomAppBar(rightIcon: SearchButton(searchDelegate: ProductSearch(productList: this.productResponse != null ? this.productResponse!.products : []))), // appBar: SearchAppBar(label: "", searchDelegate: ProductSearch(productList: [])),
       bottomNavigationBar: const CustomBottomNavigationBar(),
       floatingActionButton: const QRScannerButton(), 
@@ -74,6 +73,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  // TODO: bu const classi ele pramoy icinde yazim eger ancaq orda lazimdisa
 
   void _initProductShortcutConsts(BuildContext context, double widthOfScreen) {
     ProductShortcutConsts.shortcutImageHeight = widthOfScreen * SizeConsts.productShortcutImageHeightWidthRatio;

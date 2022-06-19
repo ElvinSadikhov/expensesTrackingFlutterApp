@@ -13,7 +13,8 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => BottomNavigationBarState(
           navigataionItems: BottomNavigationBarConsts.navigationItems, 
-          screens: BottomNavigationBarConsts.screens)), 
+          screens: BottomNavigationBarConsts.screens)
+        ), 
         ChangeNotifierProvider(create: (_) => FavouriteProductsState()),  
         ChangeNotifierProvider(create: (_) => CartState()),
          

@@ -25,7 +25,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           currentIndex: bottomNavigationBarState.selectedItemIndex,
           onTap: (index) {
             bottomNavigationBarState.updateSelectedItemIndex(index: index);
-            bottomNavigationBarState.changeScreen(context: context, index: index);
+            bottomNavigationBarState.changeScreenByIndex(context: context, index: index);
           },
           type: BottomNavigationBarType.fixed,
         );

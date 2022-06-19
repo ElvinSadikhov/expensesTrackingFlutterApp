@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 class CartState with ChangeNotifier {
   final dbHelper = CartDataHelper.instanse;
 
+  // TODO: DELETE
   final Future<List<Purchase>> _cartItems = _getCartItems();     
 
   static Future<List<Purchase>> _getCartItems() async {
@@ -13,6 +14,13 @@ class CartState with ChangeNotifier {
   }
 
   Future<void> addToCart(Purchase purchase) async {
+
+
+    List<Purchase> purchases = await _cartItems; 
+    // TODO: DEYIWMEK
+
+
+
     if (await _cartItems.then((list) => list.contains(purchase))) { 
       await _cartItems.then((list) {
         list[list.indexOf(purchase)] = list[list.indexOf(purchase)].incrementCount();

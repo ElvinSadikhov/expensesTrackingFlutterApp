@@ -20,10 +20,27 @@ class BottomNavigationBarState with ChangeNotifier {
     notifyListeners();
   } 
 
-  void changeScreen({required BuildContext context, required int index}) {
+  void changeScreenByIndex({required BuildContext context, required int index}) {
     Navigator.push(
       context, 
       MaterialPageRoute(builder: (context) => screens[index])
     );
+
+    notifyListeners();
   }
+
+  void changeScreenByWidget({required BuildContext context, required Widget screen}) { 
+    int index = this.screens.indexWhere((element) => element.key == screen.key);
+
+    if(index == -1)  return;  
+
+    Navigator.push(
+      context, 
+      MaterialPageRoute(builder: (context) => screen)
+    );
+
+    updateSelectedItemIndex(index: index); 
+  }
+
+
 }

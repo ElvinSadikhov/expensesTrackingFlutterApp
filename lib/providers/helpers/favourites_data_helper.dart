@@ -29,7 +29,7 @@ class FavouritesDataHelper {
     return await openDatabase(path, version: 1, onCreate: _createDB);
   }
 
-  Future _createDB(Database db, int version) async { 
+  Future<void> _createDB(Database db, int version) async { 
     await db.execute('''
 CREATE TABLE IF NOT EXISTS ${DBStrings.dbFavouritesTableName} (
   ${ProductFields.id} ${DBStrings.idType},

@@ -7,7 +7,7 @@ import 'package:expenses_tracking_app/consts/size_consts.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/app_bar_label_widget.dart'; 
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final Widget? leftIcon;
   final Widget? rightIcon; 

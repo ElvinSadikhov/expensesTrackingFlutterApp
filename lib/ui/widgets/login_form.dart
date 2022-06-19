@@ -59,27 +59,7 @@ class _LoginFormState extends State<LoginForm> {
                   }
                 )
               ],
-            )
-
-            // Column(
-            //   children: [
-            //     CustomTextFormField(
-            //       controller: this.usernameController, 
-            //       hintText: Strings.username, 
-            //       validator: (value) => LoginValidator.validateUsername(value),
-            //       labelText: Strings.username,      
-            //     ),  
-            //     CustomTextFormField(
-            //       controller: this.passwordController, 
-            //       hintText: Strings.password, 
-            //       validator: (value) => LoginValidator.validatePassword(value),
-            //       labelText: Strings.password,   
-            //       textInputAction: TextInputAction.done,  
-            //       obscureText: true,
-            //     ),
-            //   ]
-            // ),
-
+            )  
           )
         ),
         WidgetMethods.verticalSpace(20),

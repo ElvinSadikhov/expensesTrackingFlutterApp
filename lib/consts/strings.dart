@@ -34,5 +34,6 @@ class Strings {
   static const store = "Store"; 
   static const pricesInOtherStores = "Prices in other stores: ";
   static const addToCart = "Add To Cart";
+  static const productHasBeenAddedToTheCart = "Product has been added to the cart!";
   
 }
