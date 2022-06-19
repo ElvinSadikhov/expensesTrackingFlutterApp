@@ -7,23 +7,17 @@ import 'package:expenses_tracking_app/ui/widgets/helpers/search_button.dart';
 import 'package:flutter/material.dart';
  
 
-class SearchAppBar extends StatelessWidget {
+class SearchAppBar extends CustomAppBar {
   final BuildContext? buildContext;
-  final SearchDelegate<ProductShortcut> searchDelegate;
-  final String? label;
+  final SearchDelegate<ProductShortcut?> searchDelegate; 
   
-  const SearchAppBar({ Key? key,  
-    required this.searchDelegate, 
-    this.label,
+  SearchAppBar({ Key? key,  
+    required this.searchDelegate,
+    String? label,  
     this.buildContext,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomAppBar(
-      leftIcon: this.buildContext != null ? CustomBackButton(buildContext: this.buildContext!) : null, 
-      label: this.label ?? "", 
-      rightIcon: SearchButton(searchDelegate: this.searchDelegate),
-    );
-  }
+  }) : super(key: key, 
+        leftIcon: buildContext != null ? CustomBackButton(buildContext: buildContext) : null, 
+        label: label, 
+        rightIcon: SearchButton(searchDelegate: searchDelegate)
+      ); 
 } 

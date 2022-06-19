@@ -11,12 +11,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final Widget? leftIcon;
   final Widget? rightIcon; 
-  final String label;
+  final String? label;
   final double fontSize;
   final Color backgroundColor;   
 
   const CustomAppBar({Key? key,
-    this.label = "",
+    this.label,
     this.leftIcon, 
     this.rightIcon,  
     this.fontSize = FontSizeConsts.kDefaultAppBarLabelSize, 
@@ -45,7 +45,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 alignment: Alignment.centerRight,
                 child: this.rightIcon != null ? this.rightIcon! : Container()
               ),
-              AppBarLabelWidget(label: this.label, fontSize: this.fontSize), 
+              AppBarLabelWidget(label: this.label ?? "", fontSize: this.fontSize), 
             ] 
           ),
         ),

@@ -38,10 +38,7 @@ class ProductsGridView extends StatelessWidget {
           itemCount: this.products!.length,
           itemBuilder: (context, index) {
             return ProductShortcut(
-              product: this.products![index], 
-              containerSize: this.shortcutImageHeight, 
-              discountTagRadius: this.discountTagRadius, 
-              discountTagShift: this.discountTagShift
+              product: this.products![index],  
             );
           }
         )

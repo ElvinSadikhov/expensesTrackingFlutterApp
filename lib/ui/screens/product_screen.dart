@@ -9,6 +9,7 @@ import 'package:expenses_tracking_app/ui/widgets/helpers/custom_back_button.dart
 import 'package:expenses_tracking_app/ui/widgets/custom_app_bar.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/favourite_button.dart';
 import 'package:expenses_tracking_app/ui/widgets/product_alternatives_block.dart';
+import 'package:expenses_tracking_app/ui/widgets/product_app_bar.dart';
 import 'package:expenses_tracking_app/ui/widgets/product_info_block.dart';
 import 'package:flutter/material.dart';
  
@@ -51,7 +52,7 @@ class _ProductScreenState extends State<ProductScreen> {
     Size sizeOfScreen = MediaQuery.of(context).size;
     
     return Scaffold(
-      appBar: CustomAppBar(leftIcon: CustomBackButton(buildContext: context), rightIcon: FavouriteButton(product: widget.product),),  
+      appBar: ProductAppBar(buildContext: context, product: widget.product),
       body: SizedBox(
         height: sizeOfScreen.height,
         child: Stack(

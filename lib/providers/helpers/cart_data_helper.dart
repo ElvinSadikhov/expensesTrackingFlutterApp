@@ -1,9 +1,9 @@
 // ignore_for_file: unnecessary_this
 
 import 'package:expenses_tracking_app/consts/db_strings.dart';
-import 'package:expenses_tracking_app/models/product.dart';
-import 'package:expenses_tracking_app/models/purhcase.dart';
-import 'package:flutter/material.dart';
+import 'package:expenses_tracking_app/models/fields/product_fields.dart';
+import 'package:expenses_tracking_app/models/fields/purchase_fields.dart'; 
+import 'package:expenses_tracking_app/models/purhcase.dart'; 
 import 'package:sqflite/sqflite.dart'; 
 import 'package:path/path.dart'; 
 

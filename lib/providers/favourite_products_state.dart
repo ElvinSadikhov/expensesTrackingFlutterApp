@@ -6,32 +6,32 @@ import 'package:flutter/cupertino.dart';
 
 
 class FavouriteProductsState with ChangeNotifier {
-  final dbHelper = FavouritesDataHelper.instanse;
-
-  final Future<List<Product>> _favouriteProducts = _getFavouriteProducts();     
+  final dbHelper = FavouritesDataHelper.instanse; 
 
   static Future<List<Product>> _getFavouriteProducts() async {
     return await FavouritesDataHelper.instanse.read();
   }
 
   Future<bool> isFavourite(Product product) async {
-    return await this._favouriteProducts.then((value) { 
-      return value.contains(product); 
-    });
+    List<Product> favourites = await _getFavouriteProducts();
+
+    return favourites.contains(product);  
   }
 
   Future<void> changeState(Product product) async {
+    List<Product> favourites = await _getFavouriteProducts();
+
     if(await this.isFavourite(product)) {
-      dbHelper.remove(product); 
-      await _favouriteProducts.then((value) => value.remove(product));
-    } else {
+      favourites.remove(product);
+      dbHelper.remove(product);  
+    } else { 
+      favourites.add(product);
       dbHelper.add(product);
-      await _favouriteProducts.then((value) => value.add(product));
     }  
     
     notifyListeners();
   } 
 
-  Future<List<Product>> get favourites => _favouriteProducts;
+  Future<List<Product>> get favourites => _getFavouriteProducts();
 
 } 

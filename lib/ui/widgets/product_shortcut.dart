@@ -1,6 +1,6 @@
 // ignore_for_file: unnecessary_this, prefer_function_declarations_over_variables
-
-import 'package:expenses_tracking_app/consts/color_consts.dart';
+ 
+import 'package:expenses_tracking_app/utils/helpers/product_shortcut_size_properties.dart';
 import 'package:expenses_tracking_app/consts/size_consts.dart'; 
 import 'package:expenses_tracking_app/consts/text_style_consts.dart';
 import 'package:expenses_tracking_app/models/product.dart';
@@ -12,20 +12,15 @@ import 'package:expenses_tracking_app/utils/helpers/widget_methods.dart';
 import 'package:flutter/material.dart';
 
 
-class ProductShortcut extends StatelessWidget {
+class ProductShortcut extends StatelessWidget {  
   final Product product; 
   final double borderRadiusValue;
-  final double containerSize;
-  final double discountTagRadius;
-  final double discountTagShift; 
-
-  // TODO: BURA YAZMAQ OLARI
-
-  const ProductShortcut({ Key? key, 
-    required this.product,   
-    required this.containerSize, 
-    required this.discountTagRadius, 
-    required this.discountTagShift,  
+  final double containerSize = ProductShortcutSizeProperties.shortcutImageHeight ?? 0;
+  final double discountTagRadius = ProductShortcutSizeProperties.discountTagRadius ?? 0;
+  final double discountTagShift = ProductShortcutSizeProperties.discountTagShift ?? 0; 
+  
+  ProductShortcut({ Key? key, 
+    required this.product,      
     this.borderRadiusValue = SizeConsts.productShortcutBorderRadius, 
   }) : super(key: key); 
 

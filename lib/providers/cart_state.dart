@@ -4,32 +4,21 @@ import 'package:expenses_tracking_app/utils/helpers/price_builder.dart';
 import 'package:flutter/cupertino.dart';
 
 class CartState with ChangeNotifier {
-  final dbHelper = CartDataHelper.instanse;
-
-  // TODO: DELETE
-  final Future<List<Purchase>> _cartItems = _getCartItems();     
+  final dbHelper = CartDataHelper.instanse; 
 
   static Future<List<Purchase>> _getCartItems() async {
     return await CartDataHelper.instanse.read();
   }
 
-  Future<void> addToCart(Purchase purchase) async {
-
-
-    List<Purchase> purchases = await _cartItems; 
-    // TODO: DEYIWMEK
-
-
-
-    if (await _cartItems.then((list) => list.contains(purchase))) { 
-      await _cartItems.then((list) {
-        list[list.indexOf(purchase)] = list[list.indexOf(purchase)].incrementCount();
-      }); 
+  Future<void> addToCart(Purchase purchase) async { 
+    List<Purchase> purchases = await _getCartItems();   
+ 
+    if (purchases.contains(purchase)) { 
+      int index = purchases.indexOf(purchase); 
+      purchases[index] = purchases[index].incrementCount(); 
       dbHelper.update(purchase.incrementCount()); 
     } else {
-      await _cartItems.then((list) {
-        list.add(purchase);
-      }); 
+      purchases.add(purchase); 
       dbHelper.add(purchase);
     } 
 
@@ -37,10 +26,10 @@ class CartState with ChangeNotifier {
   } 
 
   Future<void> removeFromCart(Purchase purchase) async {
-    if (await _cartItems.then((list) => list[list.indexOf(purchase)].count > 1)) { 
-      await _cartItems.then((list) {
-        list[list.indexOf(purchase)] = list[list.indexOf(purchase)].decrementCount();
-      }); 
+    List<Purchase> purchases = await _getCartItems(); 
+
+    if (purchases[purchases.indexOf(purchase)].count > 1) { 
+      purchases[purchases.indexOf(purchase)] = purchases[purchases.indexOf(purchase)].decrementCount(); 
       dbHelper.update(purchase.decrementCount()); 
     } 
 
@@ -48,27 +37,28 @@ class CartState with ChangeNotifier {
   }  
 
   Future<void> removePurchase(Purchase purchase) async {
-    await _cartItems.then((list) => list.remove(purchase));
+    List<Purchase> purchases = await _getCartItems(); 
+
+    purchases.remove(purchase);
     dbHelper.remove(purchase);
 
     notifyListeners();
   }
 
   Future<String> getTotalPrice() async { 
+    List<Purchase> purchases = await _getCartItems(); 
     double sum = 0;  
-    return await _cartItems.then(
-      (list) {
-        if(list.isEmpty) {
-          return "";
-        } else {
-          for (Purchase purchase in list) {
-            sum += purchase.product.price * purchase.count;
-          }
-          return PriceBuilder.build(price: sum, currency: list[0].product.currency);
-        } 
-    });  
+
+    if(purchases.isEmpty) {
+      return "";
+    } else {
+      for (Purchase purchase in purchases) {
+        sum += purchase.product.price * purchase.count;
+      }
+      return PriceBuilder.build(price: sum, currency: purchases[0].product.currency);
+    }    
   }
 
-  Future<List<Purchase>> get favourites => _cartItems; 
+  Future<List<Purchase>> get favourites => _getCartItems(); 
 
 }

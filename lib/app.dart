@@ -1,4 +1,5 @@
-import 'package:expenses_tracking_app/ui/screens/home_screen.dart'; 
+import 'package:expenses_tracking_app/ui/screens/home_screen.dart';
+import 'package:expenses_tracking_app/ui/screens/login_screen.dart'; 
 import 'package:flutter/material.dart'; 
 
  
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Flutter Demo',
-      home: HomeScreen(), // LoginScreen(),
+      home: HomeScreen(), // LoginScreen()
       debugShowCheckedModeBanner: false,
     );
   }

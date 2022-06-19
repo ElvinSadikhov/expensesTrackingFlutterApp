@@ -2,7 +2,7 @@
  
 import 'package:expenses_tracking_app/consts/padding_consts.dart';
 import 'package:expenses_tracking_app/consts/size_consts.dart'; 
-import 'package:expenses_tracking_app/consts/product_shortcut_consts.dart';  
+import 'package:expenses_tracking_app/utils/helpers/product_shortcut_size_properties.dart';  
 import 'package:expenses_tracking_app/models/responses/product_response.dart';
 import 'package:expenses_tracking_app/services/explore_service.dart.dart';  
 import 'package:expenses_tracking_app/ui/widgets/discounted_products_block.dart';
@@ -12,7 +12,9 @@ import 'package:expenses_tracking_app/ui/widgets/helpers/qr_scanner_button.dart'
 import 'package:expenses_tracking_app/ui/widgets/latest_product_prices_block.dart';  
 import 'package:expenses_tracking_app/ui/widgets/custom_bottom_navigation_bar.dart';  
 import 'package:expenses_tracking_app/ui/widgets/helpers/product_search.dart';
-import 'package:expenses_tracking_app/ui/widgets/helpers/search_button.dart'; 
+import 'package:expenses_tracking_app/ui/widgets/helpers/search_button.dart';
+import 'package:expenses_tracking_app/ui/widgets/product_shortcut.dart';
+import 'package:expenses_tracking_app/ui/widgets/search_app_bar.dart'; 
 import 'package:expenses_tracking_app/utils/helpers/widget_methods.dart';  
 import 'package:flutter/material.dart'; 
 
@@ -48,10 +50,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {  
 
-    this._initProductShortcutConsts(context, MediaQuery.of(context).size.width); 
+    this._initProductShortcutSizeProperties(MediaQuery.of(context).size.width); 
     
     return Scaffold(  
-      appBar: CustomAppBar(rightIcon: SearchButton(searchDelegate: ProductSearch(productList: this.productResponse != null ? this.productResponse!.products : []))), // appBar: SearchAppBar(label: "", searchDelegate: ProductSearch(productList: [])),
+      appBar: SearchAppBar(label: "", searchDelegate: ProductSearch(productList: this.productResponse != null ? this.productResponse!.products : [])),  
       bottomNavigationBar: const CustomBottomNavigationBar(),
       floatingActionButton: const QRScannerButton(), 
       floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
@@ -73,15 +75,14 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+ 
 
-  // TODO: bu const classi ele pramoy icinde yazim eger ancaq orda lazimdisa
-
-  void _initProductShortcutConsts(BuildContext context, double widthOfScreen) {
-    ProductShortcutConsts.shortcutImageHeight = widthOfScreen * SizeConsts.productShortcutImageHeightWidthRatio;
-    ProductShortcutConsts.shortcutImageWidth = widthOfScreen * SizeConsts.productShortcutImageHeightWidthRatio;
-    ProductShortcutConsts.shortcutTextHeight = SizeConsts.productShortcutTextHeight;  
-    ProductShortcutConsts.discountTagShift = widthOfScreen * SizeConsts.productShortcutTopPaddingRatio;
-    ProductShortcutConsts.discountTagRadius = widthOfScreen * SizeConsts.discountTagRadiusRation;
+  void _initProductShortcutSizeProperties(double widthOfScreen) {
+    ProductShortcutSizeProperties.shortcutImageHeight = widthOfScreen * SizeConsts.productShortcutImageHeightWidthRatio;
+    ProductShortcutSizeProperties.shortcutImageWidth = widthOfScreen * SizeConsts.productShortcutImageHeightWidthRatio;
+    ProductShortcutSizeProperties.shortcutTextHeight = SizeConsts.productShortcutTextHeight;  
+    ProductShortcutSizeProperties.discountTagShift = widthOfScreen * SizeConsts.productShortcutTopPaddingRatio;
+    ProductShortcutSizeProperties.discountTagRadius = widthOfScreen * SizeConsts.discountTagRadiusRation;
   }
 }
  

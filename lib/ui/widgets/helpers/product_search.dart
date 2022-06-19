@@ -1,8 +1,10 @@
 // ignore_for_file: unnecessary_this
   
+import 'dart:collection';
+
 import 'package:expenses_tracking_app/consts/color_consts.dart';
 import 'package:expenses_tracking_app/consts/padding_consts.dart';
-import 'package:expenses_tracking_app/consts/product_shortcut_consts.dart';
+import 'package:expenses_tracking_app/utils/helpers/product_shortcut_size_properties.dart';
 import 'package:expenses_tracking_app/consts/size_consts.dart';
 import 'package:expenses_tracking_app/consts/text_style_consts.dart'; 
 import 'package:expenses_tracking_app/models/product.dart';
@@ -42,7 +44,7 @@ class ProductSearch extends SearchDelegate<ProductShortcut?> {
 
   @override
   Widget buildResults(BuildContext context) {
-    final List<Product> suggestions = findSuggestions();  
+    final List<Product> suggestions = this.findResults();  
 
     return Scaffold(
       bottomNavigationBar: const CustomBottomNavigationBar(),
@@ -52,10 +54,10 @@ class ProductSearch extends SearchDelegate<ProductShortcut?> {
         padding: const EdgeInsets.only(left: PaddingConsts.horizontalPadding, right: PaddingConsts.horizontalPadding),
         child: ProductsGridView(
           products: suggestions,
-          height: ProductShortcutConsts.totalWidgetHeight! ,  
-          shortcutImageHeight: ProductShortcutConsts.shortcutImageHeight!,
-          discountTagShift: ProductShortcutConsts.discountTagShift!,
-          discountTagRadius: ProductShortcutConsts.discountTagRadius!,
+          height: ProductShortcutSizeProperties.totalWidgetHeight! ,  
+          shortcutImageHeight: ProductShortcutSizeProperties.shortcutImageHeight!,
+          discountTagShift: ProductShortcutSizeProperties.discountTagShift!,
+          discountTagRadius: ProductShortcutSizeProperties.discountTagRadius!,
         ),
       ),
     );
@@ -63,7 +65,7 @@ class ProductSearch extends SearchDelegate<ProductShortcut?> {
 
   @override
   Widget buildSuggestions(BuildContext context) {  
-    final List<Product> suggestions = findSuggestions();   
+    final List<Product> suggestions = this.findSuggestions();   
  
     return ListView.builder( 
       itemCount: suggestions.length,
@@ -105,11 +107,23 @@ class ProductSearch extends SearchDelegate<ProductShortcut?> {
     );
   }   
 
-  List<Product> findSuggestions() {    
-    return this.productList.where(
-      (product) {   
-        return product.title.toLowerCase().contains(query.toLowerCase());
+  List<Product> findSuggestions() {
+    List<Product> uniqueProducts = [];
+    List<String> uniqueProductsTitles = [];
+
+    for (Product product in this.productList) {
+      if(product.title.toLowerCase().contains(query.toLowerCase()) && !uniqueProductsTitles.contains(product.title)) {
+        uniqueProducts.add(product);
+        uniqueProductsTitles.add(product.title);
       }
-    ).toList();  
+    }  
+
+    return uniqueProducts;
+ 
   }
+
+  List<Product> findResults() => 
+    this.productList.where((product) => product.title.toLowerCase().contains(query.toLowerCase())).toList();  
+  
+
 }

@@ -3,22 +3,7 @@
 import 'package:expenses_tracking_app/utils/enums/currency.dart';
 import 'package:expenses_tracking_app/utils/extensions/enum_converter.dart'; 
 
-class ProductFields {
-
-  ProductFields._();
-
-  static const String id = "id"; 
-  static const String title = "title";
-  static const String price = "price";
-  static const String currency = "currency";
-  static const String imageLink = "imageLink";
-  static const String storeName = "storeName";
-  static const String storeLocation = "storeLocation";
-  static const String discountedPrice = "discountedPrice";
-  static const String description = "description"; 
-
-}
-
+ 
 class Product {  
   final int id;
   final String title;
