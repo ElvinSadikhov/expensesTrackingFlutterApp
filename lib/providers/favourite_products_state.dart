@@ -21,7 +21,7 @@ class FavouriteProductsState with ChangeNotifier {
   Future<void> changeState(Product product) async {
     List<Product> favourites = await _getFavouriteProducts();
 
-    if(await this.isFavourite(product)) {
+    if(favourites.contains(product)) {
       favourites.remove(product);
       dbHelper.remove(product);  
     } else { 

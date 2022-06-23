@@ -3,6 +3,8 @@
 import 'package:expenses_tracking_app/consts/db_strings.dart';
 import 'package:expenses_tracking_app/models/fields/product_fields.dart';
 import 'package:expenses_tracking_app/models/product.dart';
+import 'package:expenses_tracking_app/services/product_service.dart';
+import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart'; 
 import 'package:path/path.dart'; 
 
@@ -16,6 +18,10 @@ class FavouritesDataHelper {
   FavouritesDataHelper._init();
 
   Future<Database> get database async {
+
+    if(_database != null) debugPrint("hey i am not null!");
+
+
     if(_database != null) return _database!;
 
     _database = await _initDB(DBStrings.dbFavouritesFileName);
@@ -27,42 +33,61 @@ class FavouritesDataHelper {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
 
-    return await openDatabase(path, version: 1, onCreate: _createDB);
+    debugPrint("init db");
+
+    return await openDatabase(path, version: 2, onCreate: _createDB);
   }
 
   Future<void> _createDB(Database db, int version) async { 
+//     await db.execute('''
+// CREATE TABLE IF NOT EXISTS ${DBStrings.dbFavouritesTableName} (
+//   ${ProductFields.id} ${DBStrings.idType},
+//   ${ProductFields.title} ${DBStrings.textType} ${DBStrings.notNull},
+//   ${ProductFields.price} ${DBStrings.numericType} ${DBStrings.notNull},
+//   ${ProductFields.currency} ${DBStrings.textType} ${DBStrings.notNull},
+//   ${ProductFields.imageLink} ${DBStrings.textType} ${DBStrings.notNull},
+//   ${ProductFields.storeName} ${DBStrings.textType} ${DBStrings.notNull},
+//   ${ProductFields.storeLocation} ${DBStrings.textType} ${DBStrings.notNull},
+//   ${ProductFields.discountedPrice} ${DBStrings.numericType},
+//   ${ProductFields.description} ${DBStrings.textType}
+// ); 
+//     ''');   
     await db.execute('''
 CREATE TABLE IF NOT EXISTS ${DBStrings.dbFavouritesTableName} (
-  ${ProductFields.id} ${DBStrings.idType},
-  ${ProductFields.title} ${DBStrings.textType} ${DBStrings.notNull},
-  ${ProductFields.price} ${DBStrings.numericType} ${DBStrings.notNull},
-  ${ProductFields.currency} ${DBStrings.textType} ${DBStrings.notNull},
-  ${ProductFields.imageLink} ${DBStrings.textType} ${DBStrings.notNull},
-  ${ProductFields.storeName} ${DBStrings.textType} ${DBStrings.notNull},
-  ${ProductFields.storeLocation} ${DBStrings.textType} ${DBStrings.notNull},
-  ${ProductFields.discountedPrice} ${DBStrings.numericType},
-  ${ProductFields.description} ${DBStrings.textType}
+  ${ProductFields.id} ${DBStrings.idType} 
 ); 
-    ''');  
+    '''); 
   }
     
 
   Future<List<Product>> read() async {
     final db = await instanse.database; 
+    ProductService productService = ProductService();
 
-    var products = await db.query(DBStrings.dbFavouritesTableName);
+    // var products = await db.query(DBStrings.dbFavouritesTableName);
+    var jsons = await db.query(DBStrings.dbFavouritesTableName); 
+    // this.close();
 
-    this.close();
-    return products.isNotEmpty
-      ? products.map((pr) => Product.fromJson(pr)).toList()
-        : []; 
+    if(jsons.isNotEmpty) {
+      List<Product> products = [];
+      for(Map<String, Object?> json in jsons) {
+        products.add((await productService.getProductById(json['id'] as int)).products[0]);
+      } 
+      return products;
+    }
+    return [];
+
+    // return products.isNotEmpty
+    //   ? products.map((pr) => Product.fromJson(pr)).toList()
+    //     : []; 
   }
 
   Future<int> add(Product product) async {
     final db = await instanse.database; 
-    int result = await db.insert(DBStrings.dbFavouritesTableName, product.toJson());
+    // int result = await db.insert(DBStrings.dbFavouritesTableName, product.toJson());
+    int result = await db.insert(DBStrings.dbFavouritesTableName, {'id': product.id});
 
-    this.close(); 
+    // this.close(); 
     return result;
     
   }
@@ -71,7 +96,7 @@ CREATE TABLE IF NOT EXISTS ${DBStrings.dbFavouritesTableName} (
     final db = await instanse.database;
     int result = await db.delete(DBStrings.dbFavouritesTableName, where: "${ProductFields.id} = ?", whereArgs: [product.id]);
 
-    this.close();
+    // this.close();
     return result;
   }
 
@@ -80,16 +105,22 @@ CREATE TABLE IF NOT EXISTS ${DBStrings.dbFavouritesTableName} (
 
     int result = await db.update(DBStrings.dbFavouritesTableName, product.toJson(), where: "${ProductFields.id} = ?", whereArgs: [product.id]);
 
-    this.close();
+    // this.close();
     return result;
   }
 
-  Future close() async {
+  Future<void> close() async {
     final db = await instanse.database;
 
     _database = null;
 
-    db.close();
+
+    debugPrint(_database.toString());
+
+    await db.close();
+
+    
+    debugPrint("closed db");
   } 
   
 }
