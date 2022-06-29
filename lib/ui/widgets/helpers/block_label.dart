@@ -2,7 +2,7 @@
 
 import 'package:expenses_tracking_app/consts/text_style_consts.dart';
 import 'package:expenses_tracking_app/consts/strings.dart'; 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; 
 
 
 class BlockLabel extends StatelessWidget {

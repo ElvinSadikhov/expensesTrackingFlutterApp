@@ -24,9 +24,9 @@ class FavouriteProductsBlock extends StatelessWidget {
             return ProductBlock(
               blockLabel: BlockLabel(
                 title: Strings.favouriteProducts,
-                onTap: () { 
+                onTap: () {
                   Navigator.push(
-                    context,
+                    context, 
                     MaterialPageRoute(builder: (context) => FavouriteProductsScreen(products: products))
                   );
                 },

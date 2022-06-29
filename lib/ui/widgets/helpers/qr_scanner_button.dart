@@ -1,6 +1,6 @@
-import 'package:expenses_tracking_app/consts/color_consts.dart';
+import 'package:expenses_tracking_app/consts/color_consts.dart'; 
 import 'package:expenses_tracking_app/ui/screens/qr_scanner_screen.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; 
 
 
 class QRScannerButton extends StatelessWidget {
@@ -9,7 +9,7 @@ class QRScannerButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: () { 
+      onPressed: () {  
         Navigator.push(
           context, 
           MaterialPageRoute(builder: (context) => const QrScannerScreen())

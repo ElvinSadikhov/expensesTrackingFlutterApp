@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS ${DBStrings.dbCartTableName} (
         ));
       }
 
-      this.close();
+      // this.close();
       return purchases;
     }
     return []; 
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS ${DBStrings.dbCartTableName} (
     // int result = await db.insert(DBStrings.dbCartTableName, purchase.toJson());
     int result = await db.insert(DBStrings.dbCartTableName, {'id': purchase.product.id, 'count': purchase.count});
 
-    this.close(); 
+    // this.close(); 
     return result; 
   }
 
@@ -100,16 +100,16 @@ CREATE TABLE IF NOT EXISTS ${DBStrings.dbCartTableName} (
     final db = await instanse.database;
     int result = await db.delete(DBStrings.dbCartTableName, where: "${ProductFields.id} = ?", whereArgs: [purchase.product.id]);
 
-    this.close();
+    // this.close();
     return result;
   }
 
   Future<int> update(Purchase purchase) async {
     final db = await instanse.database;
 
-    int result = await db.update(DBStrings.dbCartTableName, purchase.toJson(), where: "${ProductFields.id} = ?", whereArgs: [purchase.product.id]);
+    int result = await db.update(DBStrings.dbCartTableName, {'id': purchase.product.id, 'count': purchase.count}, where: "${ProductFields.id} = ?", whereArgs: [purchase.product.id]);
 
-    this.close();
+    // this.close();
     return result;
   }
 

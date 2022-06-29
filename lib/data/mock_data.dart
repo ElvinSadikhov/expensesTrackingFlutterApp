@@ -16,4 +16,8 @@ class MockData {
     Product(id: 11, title: "Westgold butter - 0.227Kg", price: 9.98, discountedPrice: 8.19, currency: Currency.MANAT, storeName: "Khazar", storeLocation: "Gunewli dist.", imageLink: "https://westgold.com/assets/article-images/J003174-USA-Butter-Render-227g-Salted-Cream-Background-v2__FillWzk4MCw3MDBd.jpg"),
   
   ];
+
+  static const String username = "example";
+  static const String gmail = "example@gmail.com";
+
 }

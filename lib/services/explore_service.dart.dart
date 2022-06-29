@@ -6,7 +6,7 @@ class ExploreService {
  
   Future<ProductResponse> getAllProducts() async {
     // kind of  DIO response (takes some amount of time)
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 1));
     
     return ProductResponse(products: MockData.products);
   } 

@@ -2,6 +2,7 @@
 
 import 'package:expenses_tracking_app/consts/color_consts.dart'; 
 import 'package:expenses_tracking_app/providers/bottom_navigation_bar_state.dart';
+import 'package:expenses_tracking_app/ui/screens/helpers/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,8 +25,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           selectedItemColor: ColorConsts.navBarSelectedItemColor,
           currentIndex: bottomNavigationBarState.selectedItemIndex,
           onTap: (index) {
-            bottomNavigationBarState.updateSelectedItemIndex(index: index);
-            bottomNavigationBarState.changeScreenByIndex(context: context, index: index);
+            bottomNavigationBarState.updateSelectedItemIndex(index: index); 
           },
           type: BottomNavigationBarType.fixed,
         );

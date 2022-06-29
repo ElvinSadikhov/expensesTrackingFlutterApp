@@ -10,7 +10,7 @@ class PriceBuilder {
   static String build({required double price, required Currency currency}) {
     StringBuffer buffer = StringBuffer();
 
-    buffer.write(price);
+    buffer.write(price.toStringAsFixed(2));
 
     switch(currency) {
       case Currency.DOLLAR:

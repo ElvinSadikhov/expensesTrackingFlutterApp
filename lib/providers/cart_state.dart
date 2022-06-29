@@ -4,17 +4,25 @@ import 'package:expenses_tracking_app/utils/helpers/price_builder.dart';
 import 'package:flutter/cupertino.dart';
 
 class CartState with ChangeNotifier {
-  final dbHelper = CartDataHelper.instanse; 
+  final CartDataHelper dbHelper = CartDataHelper.instanse; 
 
   static Future<List<Purchase>> _getCartItems() async {
     return await CartDataHelper.instanse.read();
   }
 
-  Future<void> addToCart(Purchase purchase) async { 
+  Future<int> getCountOfPurchase(Purchase purchase) async {
+    List<Purchase> purchases = await _getCartItems();
+
+    return !purchases.contains(purchase) 
+      ? -1 
+      : purchases[purchases.indexOf(purchase)].count;
+  }
+
+  void incrementCountOfPurchase(Purchase purchase) async {
     List<Purchase> purchases = await _getCartItems();   
  
     if (purchases.contains(purchase)) { 
-      int index = purchases.indexOf(purchase); 
+      int index = purchases.indexOf(purchase);  
       purchases[index] = purchases[index].incrementCount(); 
       dbHelper.update(purchase.incrementCount()); 
     } else {
@@ -23,9 +31,9 @@ class CartState with ChangeNotifier {
     } 
 
     notifyListeners();
-  } 
-
-  Future<void> removeFromCart(Purchase purchase) async {
+  }
+ 
+  void decrementCountOfPurchase(Purchase purchase) async {
     List<Purchase> purchases = await _getCartItems(); 
 
     if (purchases[purchases.indexOf(purchase)].count > 1) { 
@@ -36,7 +44,21 @@ class CartState with ChangeNotifier {
     notifyListeners();
   }  
 
-  Future<void> removePurchase(Purchase purchase) async {
+  void addToCart(Purchase purchase) async { 
+    List<Purchase> purchases = await _getCartItems();   
+ 
+    if (purchases.contains(purchase)) { 
+      int index = purchases.indexOf(purchase);  
+      dbHelper.update(purchase.incrementCount(count: purchases[index].count)); 
+    } else {
+      purchases.add(purchase); 
+      dbHelper.add(purchase);
+    } 
+
+    notifyListeners();
+  } 
+
+  void removeFromCart(Purchase purchase) async {
     List<Purchase> purchases = await _getCartItems(); 
 
     purchases.remove(purchase);
@@ -59,6 +81,6 @@ class CartState with ChangeNotifier {
     }    
   }
 
-  Future<List<Purchase>> get favourites => _getCartItems(); 
+  Future<List<Purchase>> get purchases => _getCartItems(); 
 
 }

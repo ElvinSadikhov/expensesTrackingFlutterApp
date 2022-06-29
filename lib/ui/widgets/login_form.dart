@@ -1,7 +1,8 @@
 // ignore_for_file: unnecessary_this
 
 import 'package:expenses_tracking_app/consts/strings.dart';
-import 'package:expenses_tracking_app/ui/screens/home_screen.dart'; 
+import 'package:expenses_tracking_app/ui/screens/helpers/home_screen.dart';
+import 'package:expenses_tracking_app/ui/screens/main_screen.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/custom_text_form_field.dart';
 import 'package:expenses_tracking_app/ui/widgets/labeled_button.dart';
 import 'package:expenses_tracking_app/utils/helpers/validators/login_validator.dart';
@@ -69,7 +70,7 @@ class _LoginFormState extends State<LoginForm> {
               if (this.isValidAccount()) {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  MaterialPageRoute(builder: (context) => const MainScreen()),
                 );
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("There is no such an account!"))); 

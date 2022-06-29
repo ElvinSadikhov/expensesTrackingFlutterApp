@@ -49,9 +49,9 @@ class _LatestProductPricesBlockState extends State<LatestProductPricesBlock> {
         onTap: () {
           Navigator.push(
             context, 
-            MaterialPageRoute(builder: (context) => LatestProductPricesScreen(products: this.products))
+            MaterialPageRoute(builder: (context) => LatestProductPricesScreen(products: products))
           );
-        }
+        },
       ), 
       productListView: ProductsListView(products: this.products)
     ); 

@@ -11,7 +11,7 @@ class DataHelper {
 
   static Database? _database;
 
-  DataHelper();
+  // DataHelper();
   DataHelper._init();
   
 

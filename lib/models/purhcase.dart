@@ -14,13 +14,13 @@ class Purchase {
     required this.count
   });
 
-  Purchase decrementCount() { 
-    this.count -= 1;
+  Purchase decrementCount({int count = 1}) { 
+    this.count -= count;
     return this;
   }
 
-  Purchase incrementCount() {
-    this.count += 1;
+  Purchase incrementCount({int count = 1}) {
+    this.count += count;
     return this;
   }
 

@@ -17,11 +17,7 @@ class FavouritesDataHelper {
 
   FavouritesDataHelper._init();
 
-  Future<Database> get database async {
-
-    if(_database != null) debugPrint("hey i am not null!");
-
-
+  Future<Database> get database async {  
     if(_database != null) return _database!;
 
     _database = await _initDB(DBStrings.dbFavouritesFileName);
@@ -112,14 +108,9 @@ CREATE TABLE IF NOT EXISTS ${DBStrings.dbFavouritesTableName} (
   Future<void> close() async {
     final db = await instanse.database;
 
-    _database = null;
+    _database = null; 
 
-
-    debugPrint(_database.toString());
-
-    await db.close();
-
-    
+    await db.close(); 
     debugPrint("closed db");
   } 
   

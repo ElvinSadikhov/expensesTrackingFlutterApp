@@ -35,5 +35,10 @@ class Strings {
   static const pricesInOtherStores = "Prices in other stores: ";
   static const addToCart = "Add To Cart";
   static const productHasBeenAddedToTheCart = "Product has been added to the cart!";
+
+  static const yourCart = "Your Cart";
+  static const total = "Total: ";
+
+  static const yourProfile = "Your Profile";
   
 }

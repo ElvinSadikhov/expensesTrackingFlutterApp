@@ -7,7 +7,7 @@ import 'package:expenses_tracking_app/models/responses/product_response.dart';
 class DiscountedProductsService {  
     
   Future<ProductResponse> getDiscountedProducts() async {     
-    await Future.delayed(const Duration(seconds: 3)); 
+    await Future.delayed(const Duration(seconds: 1)); 
     ProductResponse productResponse = ProductResponse(products: MockData.products); 
     
     return ProductResponse(products: 

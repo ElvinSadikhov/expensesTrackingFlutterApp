@@ -118,6 +118,24 @@ class TextStyleConsts {
     color: ColorConsts.black,
   );
 
+  static const purchaseShortcutSubtitleStyle = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: ColorConsts.black,
+  );
 
+  static const purchaseShortcutTitleStyle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: ColorConsts.black, 
+    overflow: TextOverflow.ellipsis,
+  );
+
+  static const profileInfoStyle = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    color: ColorConsts.black, 
+    overflow: TextOverflow.ellipsis,
+  ); 
 
 }

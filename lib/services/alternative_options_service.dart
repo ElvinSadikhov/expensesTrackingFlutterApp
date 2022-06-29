@@ -5,7 +5,7 @@ import 'package:expenses_tracking_app/models/responses/product_response.dart';
 class AlternativeOptionsService {
     
   Future<ProductResponse> getAlternativeProducts({required Product currentProduct}) async {
-    await Future.delayed(const Duration(seconds: 3)); 
+    await Future.delayed(const Duration(seconds: 1)); 
     ProductResponse allProducts = ProductResponse(products: MockData.products);
  
     return ProductResponse(

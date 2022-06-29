@@ -9,10 +9,12 @@ class CustomBackButton extends StatelessWidget {
 
   final BuildContext buildContext;
   final double buttonSize; 
+  final Color color;
   
   const CustomBackButton({ Key? key, 
     required this.buildContext, 
-    this.buttonSize = SizeConsts.kDefaultAppBarButtonSize,  
+    this.buttonSize = SizeConsts.kDefaultAppBarButtonSize, 
+    this.color = ColorConsts.black, 
   }) : super(key: key);
 
   @override
@@ -21,7 +23,7 @@ class CustomBackButton extends StatelessWidget {
       onTap: () { 
         Navigator.pop(this.buildContext);
       },
-      child: Icon(Icons.arrow_back, size: this.buttonSize, color: ColorConsts.black,)
+      child: Icon(Icons.arrow_back, size: this.buttonSize, color: this.color,)
     );
   }
 }

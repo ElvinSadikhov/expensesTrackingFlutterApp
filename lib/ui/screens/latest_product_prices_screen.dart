@@ -1,5 +1,6 @@
 // ignore_for_file: unnecessary_this
 
+import 'package:expenses_tracking_app/consts/color_consts.dart';
 import 'package:expenses_tracking_app/consts/padding_consts.dart';
 import 'package:expenses_tracking_app/consts/strings.dart';
 import 'package:expenses_tracking_app/models/product.dart'; 
@@ -28,17 +29,20 @@ class LatestProductPricesScreen extends StatelessWidget {
         label: Strings.latestProductPrices,
         searchDelegate: ProductSearch(productList: this.products != null ? this.products! : []),
       ), 
-      bottomNavigationBar: const CustomBottomNavigationBar(),
-      floatingActionButton: const QRScannerButton(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
-      body: Padding(
-        padding: const EdgeInsets.only(left: PaddingConsts.horizontalPadding, right: PaddingConsts.horizontalPadding),
-        child: ProductsGridView( 
-          products: this.products, 
-          height: ProductShortcutSizeProperties.totalWidgetHeight!,
-          shortcutImageHeight: ProductShortcutSizeProperties.shortcutImageHeight!,
-          discountTagShift: ProductShortcutSizeProperties.discountTagShift!,
-          discountTagRadius: ProductShortcutSizeProperties.discountTagRadius!,
+      // bottomNavigationBar: const CustomBottomNavigationBar(),
+      // floatingActionButton: const QRScannerButton(),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
+      body: Container(
+        color: ColorConsts.white,
+        child: Padding(
+          padding: const EdgeInsets.only(left: PaddingConsts.horizontalPadding, right: PaddingConsts.horizontalPadding),
+          child: ProductsGridView( 
+            products: this.products, 
+            height: ProductShortcutSizeProperties.totalWidgetHeight!,
+            shortcutImageHeight: ProductShortcutSizeProperties.shortcutImageHeight!,
+            discountTagShift: ProductShortcutSizeProperties.discountTagShift!,
+            discountTagRadius: ProductShortcutSizeProperties.discountTagRadius!,
+          ),
         ),
       ),
     );

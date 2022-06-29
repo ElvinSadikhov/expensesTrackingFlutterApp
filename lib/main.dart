@@ -16,7 +16,7 @@ void main() {
           screens: BottomNavigationBarConsts.screens)
         ), 
         ChangeNotifierProvider(create: (_) => FavouriteProductsState()),  
-        ChangeNotifierProvider(create: (_) => CartState()),
+        ChangeNotifierProvider(create: (_) => CartState()), 
          
       ],
       child: const MyApp(),

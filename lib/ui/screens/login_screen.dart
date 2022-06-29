@@ -1,3 +1,4 @@
+import 'package:expenses_tracking_app/consts/color_consts.dart';
 import 'package:expenses_tracking_app/consts/padding_consts.dart';
 import 'package:expenses_tracking_app/consts/strings.dart';
 import 'package:expenses_tracking_app/ui/screens/registration_screen.dart';
@@ -14,26 +15,29 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(label: Strings.logIn),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Padding(
-          padding: const EdgeInsets.only(top: 30, left: PaddingConsts.horizontalPadding, right: PaddingConsts.horizontalPadding),
-          child: Column(
-            children: [   
-              const LoginForm(padding: EdgeInsets.symmetric(horizontal: 30),),
-              WidgetMethods.verticalSpace(30),
-              ClickableRecommendationText(
-                nonclickableText: Strings.registrationRecommendation, 
-                clickableText: Strings.createAnAccountExclamatory,
-                onTap: () {
-                  debugPrint('Create an account has been clicked');
-                  Navigator.push(
-                    context, 
-                    MaterialPageRoute(builder: (context) => const RegistrationScreen()),
-                  );
-                },
-              )
-            ]
+      body: Container(
+        color: ColorConsts.white,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 30, left: PaddingConsts.horizontalPadding, right: PaddingConsts.horizontalPadding),
+            child: Column(
+              children: [   
+                const LoginForm(padding: EdgeInsets.symmetric(horizontal: 30),),
+                WidgetMethods.verticalSpace(30),
+                ClickableRecommendationText(
+                  nonclickableText: Strings.registrationRecommendation, 
+                  clickableText: Strings.createAnAccountExclamatory,
+                  onTap: () {
+                    debugPrint('Create an account has been clicked');
+                    Navigator.push(
+                      context, 
+                      MaterialPageRoute(builder: (context) => const RegistrationScreen()),
+                    );
+                  },
+                )
+              ]
+            ),
           ),
         ),
       ),

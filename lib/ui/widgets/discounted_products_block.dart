@@ -51,9 +51,9 @@ class _DiscountedProductsBlockState extends State<DiscountedProductsBlock> {
         onTap: () {
           Navigator.push(
             context, 
-            MaterialPageRoute(builder: (context) => DiscountedProductsScreen(products: this.products))
+            MaterialPageRoute(builder: (context) => DiscountedProductsScreen(products: products))
           );
-        } 
+        },
       ), 
       productListView: ProductsListView(products: this.products)
     );
