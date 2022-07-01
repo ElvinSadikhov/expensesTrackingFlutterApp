@@ -14,8 +14,7 @@ class PurchaseListView extends StatelessWidget {
 
     Size sizeOfScreen = MediaQuery.of(context).size;
 
-    return SizedBox(
-      height: sizeOfScreen.height * 0.8,
+    return SizedBox( 
       child: Consumer<CartState>(
         builder: (context, CartState cartState, _) {
           return FutureBuilder<List<Purchase>>(

@@ -22,7 +22,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       builder: (context, BottomNavigationBarState bottomNavigationBarState, _) {
         return BottomNavigationBar( 
           items: bottomNavigationBarState.navigataionItems,
-          selectedItemColor: ColorConsts.navBarSelectedItemColor,
+          selectedItemColor: ColorConsts.blueAccent,
           currentIndex: bottomNavigationBarState.selectedItemIndex,
           onTap: (index) {
             bottomNavigationBarState.updateSelectedItemIndex(index: index); 

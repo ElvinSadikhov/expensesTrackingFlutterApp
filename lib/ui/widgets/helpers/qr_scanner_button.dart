@@ -16,7 +16,7 @@ class QRScannerButton extends StatelessWidget {
         );
       },
       child: const Icon(Icons.qr_code_scanner_outlined),
-      backgroundColor: ColorConsts.navBarSelectedItemColor,
+      backgroundColor: ColorConsts.blueAccent,
     );
   }
 }

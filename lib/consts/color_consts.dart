@@ -11,7 +11,7 @@ class ColorConsts {
   static const Color red = Colors.red;
   static const Color green = Colors.greenAccent;
 
-  static const Color navBarSelectedItemColor = Colors.blueAccent;
+  static const Color blueAccent = Colors.blueAccent;
   static const Color discountTagColor = Colors.red; 
 
 }

@@ -1,6 +1,6 @@
 // ignore_for_file: unnecessary_this
  
-import 'package:expenses_tracking_app/consts/text_style_consts.dart';
+import 'package:expenses_tracking_app/consts/color_consts.dart'; 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -23,11 +23,17 @@ class ClickableRecommendationText extends StatelessWidget {
         children: [
           TextSpan(
             text: this.nonclickableText,
-            style: TextStyleConsts.nonclickableRecommendationStyle,
+            style: Theme.of(context).textTheme.headline5!.copyWith(fontSize: 14),
           ),
           TextSpan(
             text: this.clickableText, 
-            style: TextStyleConsts.clickableRecommendationStyle,
+            style: Theme.of(context).textTheme.headline5!.copyWith(
+              fontSize: 14, 
+              fontWeight: FontWeight.w500, 
+              color: ColorConsts.blue, 
+              fontStyle: FontStyle.italic, 
+              decoration: TextDecoration.underline
+            ),
             recognizer: TapGestureRecognizer()
               ..onTap = this.onTap,
           ),

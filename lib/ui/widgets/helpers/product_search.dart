@@ -5,8 +5,7 @@ import 'dart:collection';
 import 'package:expenses_tracking_app/consts/color_consts.dart';
 import 'package:expenses_tracking_app/consts/padding_consts.dart';
 import 'package:expenses_tracking_app/utils/helpers/product_shortcut_size_properties.dart';
-import 'package:expenses_tracking_app/consts/size_consts.dart';
-import 'package:expenses_tracking_app/consts/text_style_consts.dart'; 
+import 'package:expenses_tracking_app/consts/size_consts.dart'; 
 import 'package:expenses_tracking_app/models/product.dart';
 import 'package:expenses_tracking_app/ui/widgets/custom_bottom_navigation_bar.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/products_grid_view.dart';
@@ -82,7 +81,7 @@ class ProductSearch extends SearchDelegate<ProductShortcut?> {
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: Text(
                     suggestions[index].title, 
-                    style: TextStyleConsts.buttonLabelStyle.copyWith(fontSize: 14),
+                    style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 14),
                   ),
                 ), 
               ),

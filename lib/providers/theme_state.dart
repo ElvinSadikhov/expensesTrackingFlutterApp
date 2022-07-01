@@ -1,14 +1,20 @@
+// ignore_for_file: unnecessary_this
+
 import 'package:flutter/material.dart';
 
-class ThemeState {
+class ThemeState with ChangeNotifier{
 
-  final ThemeMode _themeMode = ThemeMode.dark;
+  // TODO: save it get storage
+  ThemeMode _themeMode = ThemeMode.light;
 
-  bool get isDarkMode => _themeMode == ThemeMode.dark;
+  ThemeMode get themeMode => _themeMode;
 
-  Brightness getSystemTheme({required BuildContext context}) {
-    return MediaQuery.of(context).platformBrightness;
-  }
+  void toggleTheme() {
+    _themeMode = this.isDark() ? ThemeMode.light : ThemeMode.dark; 
 
+    notifyListeners();
+  } 
+
+  bool isDark() => _themeMode == ThemeMode.dark; 
 
 }

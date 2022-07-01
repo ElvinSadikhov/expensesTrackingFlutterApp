@@ -1,8 +1,7 @@
 // ignore_for_file: unnecessary_this
 
 import 'package:expenses_tracking_app/consts/color_consts.dart';
-import 'package:expenses_tracking_app/consts/size_consts.dart';
-import 'package:expenses_tracking_app/consts/text_style_consts.dart'; 
+import 'package:expenses_tracking_app/consts/size_consts.dart';  
 import 'package:flutter/material.dart';
 
 
@@ -21,7 +20,7 @@ class DifferenceIndicator extends StatelessWidget {
       children: [
         Text(
           "${this.priceDifferenceInPercentage} %",
-          style: TextStyleConsts.priceDifferenceInPercentageStyle,
+          style: Theme.of(context).textTheme.headline6!.copyWith(fontWeight: FontWeight.w700),
         ),
         Icon(
           this.priceDifferenceInPercentage < 0 

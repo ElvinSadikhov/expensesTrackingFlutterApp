@@ -1,5 +1,4 @@
-import 'package:expenses_tracking_app/consts/strings.dart';
-import 'package:expenses_tracking_app/consts/text_style_consts.dart';
+import 'package:expenses_tracking_app/consts/strings.dart'; 
 import 'package:expenses_tracking_app/data/mock_data.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/rounded_image_frame.dart';
 import 'package:expenses_tracking_app/utils/helpers/widget_methods.dart';
@@ -24,15 +23,15 @@ class AccountInfoBlock extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const Text(
+              Text(
                 Strings.username + ": " + MockData.username, 
-                style: TextStyleConsts.profileInfoStyle,
+                style: Theme.of(context).textTheme.headline4!.copyWith(fontWeight: FontWeight.w500),
               ),
               WidgetMethods.verticalSpace(15),
-              const Text(
+              Text(
                 Strings.gmail + ": " + MockData.gmail,  
                 overflow: TextOverflow.ellipsis,
-                style: TextStyleConsts.profileInfoStyle,
+                style: Theme.of(context).textTheme.headline4!.copyWith(fontWeight: FontWeight.w500),
               )
             ],
           )

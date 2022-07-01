@@ -1,7 +1,6 @@
 // ignore_for_file: unnecessary_this
   
-import 'package:expenses_tracking_app/consts/color_consts.dart';
-import 'package:expenses_tracking_app/consts/text_style_consts.dart';
+import 'package:expenses_tracking_app/consts/color_consts.dart'; 
 import 'package:expenses_tracking_app/utils/helpers/price_builder.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +24,7 @@ class DiscountTag extends StatelessWidget {
       child: Center(
         child: Text(
           PriceBuilder.calculatedDiscountPercentage(actualPrice: this.actualPrice, discountedPrice: this.discountedPrice),
-          style: TextStyleConsts.productShortcutDiscountStyle,
+          style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 10, fontWeight: FontWeight.bold),
         ),
       ),
       decoration: BoxDecoration(

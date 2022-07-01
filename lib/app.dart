@@ -1,7 +1,9 @@
-import 'package:expenses_tracking_app/ui/screens/helpers/home_screen.dart';
+import 'package:expenses_tracking_app/app_themes.dart';  
+import 'package:expenses_tracking_app/providers/theme_state.dart'; 
 import 'package:expenses_tracking_app/ui/screens/login_screen.dart';
 import 'package:expenses_tracking_app/ui/screens/main_screen.dart'; 
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';  
 
  
 class MyApp extends StatelessWidget {
@@ -9,10 +11,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter Demo',
-      home: MainScreen(), // LoginScreen()
-      debugShowCheckedModeBanner: false,
+    return Consumer<ThemeState>(
+      builder: (context, ThemeState themeState, _) {
+        return MaterialApp(
+          title: 'Flutter Demo',
+          theme: AppThemes.lightTheme.copyWith(textTheme: AppThemes.getTextTheme(isDark: themeState.isDark())),
+          darkTheme: AppThemes.darkTheme.copyWith(textTheme: AppThemes.getTextTheme(isDark: themeState.isDark())),
+          themeMode: themeState.themeMode,
+          home: const MainScreen(), // LoginScreen()
+          debugShowCheckedModeBanner: false,
+        );
+      }, 
     );
   }
-}
+} 
+

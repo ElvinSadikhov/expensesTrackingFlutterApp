@@ -1,16 +1,12 @@
 // ignore_for_file: unnecessary_this
-
-import 'package:expenses_tracking_app/consts/color_consts.dart';
+ 
 import 'package:expenses_tracking_app/consts/padding_consts.dart';
-import 'package:expenses_tracking_app/consts/strings.dart';
-import 'package:expenses_tracking_app/consts/text_style_consts.dart';
-import 'package:expenses_tracking_app/models/product.dart';
+import 'package:expenses_tracking_app/consts/strings.dart';  
 import 'package:expenses_tracking_app/models/purhcase.dart';
 import 'package:expenses_tracking_app/providers/cart_state.dart';
 import 'package:expenses_tracking_app/ui/screens/product_screen.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/image_box.dart';
-import 'package:expenses_tracking_app/ui/widgets/helpers/signed_box.dart';
-import 'package:expenses_tracking_app/utils/enums/currency.dart';
+import 'package:expenses_tracking_app/ui/widgets/helpers/signed_box.dart'; 
 import 'package:expenses_tracking_app/utils/helpers/price_builder.dart';
 import 'package:expenses_tracking_app/utils/helpers/widget_methods.dart';
 import 'package:flutter/material.dart';
@@ -66,7 +62,7 @@ class PurchaseShortcut extends StatelessWidget {
                             width: sizeOfScreen.width * 0.5,
                             child: Text(
                               this.purchase.product.title,
-                              style: TextStyleConsts.purchaseShortcutTitleStyle, 
+                              style: Theme.of(context).textTheme.headline6!.copyWith(fontWeight: FontWeight.w500), 
                             ),
                           ),  
                           GestureDetector(
@@ -86,7 +82,7 @@ class PurchaseShortcut extends StatelessWidget {
                         children: [
                           Text(
                             this.purchase.product.storeName,
-                            style: TextStyleConsts.purchaseShortcutTitleStyle.copyWith(decoration: TextDecoration.underline, fontWeight: FontWeight.w400), 
+                            style: Theme.of(context).textTheme.headline6!.copyWith(decoration: TextDecoration.underline, fontWeight: FontWeight.w400), 
                           ),
                           WidgetMethods.horizontalSpace(30),
                           Row(
@@ -101,11 +97,7 @@ class PurchaseShortcut extends StatelessWidget {
                                 padding: const EdgeInsets.symmetric(horizontal: 5),
                                 child: Text(
                                   "${this.purchase.count}",
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w700,
-                                    color: ColorConsts.black
-                                  ),
+                                  style: Theme.of(context).textTheme.headline6!.copyWith(fontWeight: FontWeight.w700),
                                 ),
                               ),
                               GestureDetector(
@@ -128,7 +120,7 @@ class PurchaseShortcut extends StatelessWidget {
               children: [
                 Text(
                   " " + Strings.price + PriceBuilder.build(price: this.purchase.product.price, currency: this.purchase.product.currency),
-                  style: TextStyleConsts.purchaseShortcutSubtitleStyle,
+                  style: Theme.of(context).textTheme.headline4!.copyWith(fontWeight: FontWeight.w400),
                 ),
                 Consumer<CartState>(
                   builder: (context, CartState cartState, _) {
@@ -138,7 +130,7 @@ class PurchaseShortcut extends StatelessWidget {
                         return snapshot.hasData 
                           ? Text(
                             Strings.total + PriceBuilder.build(price: this.purchase.product.price * snapshot.data!, currency: this.purchase.product.currency),
-                            style: TextStyleConsts.purchaseShortcutSubtitleStyle,
+                            style: Theme.of(context).textTheme.headline4!.copyWith(fontWeight: FontWeight.w400),
                           )
                           : const CircularProgressIndicator();
                       }, 

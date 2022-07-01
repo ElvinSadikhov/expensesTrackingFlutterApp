@@ -1,6 +1,5 @@
 // ignore_for_file: unnecessary_this
-
-import 'package:expenses_tracking_app/consts/text_style_consts.dart';
+ 
 import 'package:flutter/material.dart';
 
 
@@ -15,7 +14,7 @@ class AppBarLabelWidget extends StatelessWidget {
     return Center(
       child: Text(
         this.label,
-        style: TextStyleConsts.appBarLabelStyle.copyWith(fontSize: this.fontSize)
+        style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: this.fontSize)
       ),
     );
   }

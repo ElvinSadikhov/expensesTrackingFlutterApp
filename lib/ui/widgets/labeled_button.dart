@@ -1,7 +1,6 @@
 // ignore_for_file: unnecessary_this
 
-import 'package:expenses_tracking_app/consts/color_consts.dart';
-import 'package:expenses_tracking_app/consts/text_style_consts.dart';
+import 'package:expenses_tracking_app/consts/color_consts.dart'; 
 import 'package:flutter/material.dart';
 
 class LabeledButton extends StatefulWidget {
@@ -41,7 +40,7 @@ class _LabeledButtonState extends State<LabeledButton> {
             padding: EdgeInsets.symmetric(horizontal: widget.horizontalPadding, vertical: widget.verticalPadding),
             child: Text(
               widget.label,
-                style: TextStyleConsts.buttonLabelStyle.copyWith(fontSize: widget.labelSize),
+                style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: widget.labelSize),
             ),
           ), 
         ),

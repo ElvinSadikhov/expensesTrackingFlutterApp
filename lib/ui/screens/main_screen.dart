@@ -59,13 +59,12 @@ class _MainScreenState extends State<MainScreen> {
             : bottomNavigationBarState.selectedItemIndex == 1
               ? const CustomAppBar(label: Strings.yourCart)
               : bottomNavigationBarState.selectedItemIndex == 3
-                ? CustomAppBar(label: Strings.yourProfile)
+                ? const CustomAppBar(label: Strings.yourProfile)
                 : null,  
           bottomNavigationBar: const CustomBottomNavigationBar(),
           floatingActionButton: const QRScannerButton(), 
           floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
-          body: Container(
-            color: ColorConsts.white,
+          body: Container( 
             child: BottomNavigationBarConsts.screens[bottomNavigationBarState.selectedItemIndex]
           ),
         );

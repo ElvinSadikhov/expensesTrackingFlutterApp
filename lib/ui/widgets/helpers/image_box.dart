@@ -2,7 +2,9 @@
 
 import 'package:expenses_tracking_app/consts/color_consts.dart';
 import 'package:expenses_tracking_app/consts/size_consts.dart';
+import 'package:expenses_tracking_app/providers/theme_state.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 
 class ImageBox extends StatelessWidget {
@@ -23,7 +25,7 @@ class ImageBox extends StatelessWidget {
     return Card( 
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(this.borderRadiusValue),
-          side: const BorderSide(width: 1.5, color: ColorConsts.black)),
+          side: BorderSide(width: 1.5, color: Provider.of<ThemeState>(context, listen: false).isDark() ? ColorConsts.white : ColorConsts.black,)),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(this.borderRadiusValue),
         child: Image.network(this.imageLink, 

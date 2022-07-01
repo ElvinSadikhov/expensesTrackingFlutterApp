@@ -1,6 +1,4 @@
-// ignore_for_file: unnecessary_this
-
-import 'package:expenses_tracking_app/consts/text_style_consts.dart';
+// ignore_for_file: unnecessary_this 
 import 'package:expenses_tracking_app/consts/strings.dart'; 
 import 'package:flutter/material.dart'; 
 
@@ -22,12 +20,12 @@ class BlockLabel extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(this.title, 
-          style: TextStyleConsts.blockTitleStyle,
+          style: Theme.of(context).textTheme.headline5!,
         ),
         GestureDetector(
           onTap: this.onTap,
           child: Text(this.subtitle, 
-            style: TextStyleConsts.blockSubtitleStyle,
+            style: Theme.of(context).textTheme.headline5!.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
           ),
         )
       ],

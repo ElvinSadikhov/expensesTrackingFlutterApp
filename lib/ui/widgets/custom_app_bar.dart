@@ -13,14 +13,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? rightIcon; 
   final String? label;
   final double fontSize;
-  final Color backgroundColor;   
+  final Color? backgroundColor;   
 
   const CustomAppBar({Key? key,
     this.label,
     this.leftIcon, 
     this.rightIcon,  
     this.fontSize = FontSizeConsts.kDefaultAppBarLabelSize, 
-    this.backgroundColor = ColorConsts.white,  
+    this.backgroundColor  
   }) : super(key: key);
 
   @override
@@ -30,7 +30,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     
     return SafeArea(
       child: Container(
-        color: this.backgroundColor,
+        color: this.backgroundColor ?? Theme.of(context).backgroundColor,
         height: this.fontSize + 30,
         width: sizeOfScreen.width,
         child: Padding(

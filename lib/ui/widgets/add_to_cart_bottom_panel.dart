@@ -56,11 +56,7 @@ class _AddToCartBottomPanelState extends State<AddToCartBottomPanel> {
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: Text(
                   "${this.count}",
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
-                    color: ColorConsts.black
-                  ),
+                  style: Theme.of(context).textTheme.headline6!.copyWith(fontWeight: FontWeight.w700),
                 ),
               ),
               GestureDetector(

@@ -21,6 +21,7 @@ class HomeScreen extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [ 
+            WidgetMethods.verticalSpace(10),
             const DiscountedProductsBlock(),
             WidgetMethods.verticalSpace(20),
             const LatestProductPricesBlock(), 

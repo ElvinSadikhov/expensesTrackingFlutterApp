@@ -1,7 +1,6 @@
 // ignore_for_file: unnecessary_this
 
-import 'package:expenses_tracking_app/consts/color_consts.dart';
-import 'package:expenses_tracking_app/consts/text_style_consts.dart';
+import 'package:expenses_tracking_app/consts/color_consts.dart'; 
 import 'package:expenses_tracking_app/models/product.dart';
 import 'package:expenses_tracking_app/ui/screens/product_screen.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/change_indicator.dart';
@@ -41,14 +40,14 @@ class AlternativeOption extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     this.alternative.storeName,
-                    style: TextStyleConsts.alternativeProductStoreNameStyle,
+                    style: Theme.of(context).textTheme.headline3!,
                   ),
                 ),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     this.alternative.storeLocation,
-                    style: TextStyleConsts.alternativeProductStoreLocationStyle,
+                    style: Theme.of(context).textTheme.headline3!.copyWith(fontWeight: FontWeight.w400),
                   ),
                 ),
               ],
@@ -64,7 +63,7 @@ class AlternativeOption extends StatelessWidget {
                   WidgetMethods.horizontalSpace(5),
                   Text(
                     PriceBuilder.build(price: this.alternative.discountedPrice ?? this.alternative.price, currency: this.alternative.currency),
-                    style: TextStyleConsts.alternativeProductPriceStyle,
+                    style: Theme.of(context).textTheme.headline3!.copyWith(fontWeight: FontWeight.w600),
                   ),
                 ],
               ),

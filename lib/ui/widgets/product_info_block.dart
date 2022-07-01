@@ -1,5 +1,4 @@
-import 'package:expenses_tracking_app/consts/strings.dart';
-import 'package:expenses_tracking_app/consts/text_style_consts.dart';
+import 'package:expenses_tracking_app/consts/strings.dart'; 
 import 'package:expenses_tracking_app/models/product.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/image_box.dart';
 import 'package:expenses_tracking_app/utils/helpers/price_builder.dart';
@@ -30,7 +29,7 @@ class _ProductInfoBlockState extends State<ProductInfoBlock> {
         Center(
           child: Text(
             widget.product.title,  
-            style: TextStyleConsts.productInfoMainTitleStyle,
+            style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 22, fontWeight: FontWeight.w800),
           )  
         ),
         WidgetMethods.verticalSpace(10),
@@ -46,24 +45,24 @@ class _ProductInfoBlockState extends State<ProductInfoBlock> {
             ? RichText(
               text: TextSpan(
                 children: <TextSpan>[
-                  const TextSpan(
+                  TextSpan(
                     text: Strings.price,
-                    style: TextStyleConsts.productInfoPriceStyle
+                    style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 22, fontWeight: FontWeight.w800)
                   ),
                   TextSpan(
                     text: PriceBuilder.build(price: widget.product.price, currency: widget.product.currency),
-                    style: TextStyleConsts.productInfoPriceStyle.copyWith(decoration: TextDecoration.lineThrough),
+                    style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 22, fontWeight: FontWeight.w700, decoration: TextDecoration.lineThrough),
                   ),
                   TextSpan(
                     text: PriceBuilder.build(price: widget.product.discountedPrice!, currency: widget.product.currency),
-                    style: TextStyleConsts.productInfoPriceStyle 
+                    style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 22, fontWeight: FontWeight.w700) 
                   ),
                 ],
               ),
             ) 
             : Text(
               Strings.price + PriceBuilder.build(price: widget.product.price, currency: widget.product.currency),
-              style: TextStyleConsts.productInfoPriceStyle,
+              style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 22, fontWeight: FontWeight.w700) ,
             ), 
         ),
         WidgetMethods.verticalSpace(10),
@@ -74,12 +73,12 @@ class _ProductInfoBlockState extends State<ProductInfoBlock> {
             children: [
               Text(
                 "${Strings.store}: \"${widget.product.storeName}\"",
-                style: TextStyleConsts.productInfoStoreNameStyle,
+                style: Theme.of(context).textTheme.headline2!.copyWith(fontStyle: FontStyle.italic),
               ),
               WidgetMethods.verticalSpace(10),
               Text(
                 "${Strings.location}: \"${widget.product.storeLocation}\"",
-                style: TextStyleConsts.productInfoStoreNameStyle.copyWith(fontWeight: FontWeight.w500),
+                style: Theme.of(context).textTheme.headline2!.copyWith(fontStyle: FontStyle.italic),
               ),
             ] 
           ),
@@ -91,11 +90,11 @@ class _ProductInfoBlockState extends State<ProductInfoBlock> {
               children: [
                 TextSpan(
                   text: "${Strings.description}: ",
-                  style: TextStyleConsts.productInfoStoreNameStyle.copyWith(fontWeight: FontWeight.w500),
+                  style: Theme.of(context).textTheme.headline2!.copyWith(fontStyle: FontStyle.italic),
                 ),
                 TextSpan(
                   text: widget.product.description, 
-                  style: TextStyleConsts.productInfoStoreNameStyle.copyWith(fontWeight: FontWeight.w400, fontStyle: FontStyle.normal), 
+                  style: Theme.of(context).textTheme.headline2!, 
                 ),
               ]
             ),

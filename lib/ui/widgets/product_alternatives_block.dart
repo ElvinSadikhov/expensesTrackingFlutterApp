@@ -1,7 +1,6 @@
 // ignore_for_file: unnecessary_this
 
-import 'package:expenses_tracking_app/consts/strings.dart';
-import 'package:expenses_tracking_app/consts/text_style_consts.dart';
+import 'package:expenses_tracking_app/consts/strings.dart'; 
 import 'package:expenses_tracking_app/models/product.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/alternative_option.dart';
 import 'package:expenses_tracking_app/utils/helpers/widget_methods.dart';
@@ -18,11 +17,11 @@ class ProductAlternativesBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Align(
+        Align(
           alignment: Alignment.centerLeft,
           child: Text(
             Strings.pricesInOtherStores,
-            style: TextStyleConsts.pricesInOtherStoresStyle,
+            style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.w600, decoration: TextDecoration.underline,),
           ),
         ),
         WidgetMethods.verticalSpace(10),

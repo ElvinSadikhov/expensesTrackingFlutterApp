@@ -1,7 +1,9 @@
 // ignore_for_file: unnecessary_this
 
 import 'package:expenses_tracking_app/consts/color_consts.dart';
+import 'package:expenses_tracking_app/providers/theme_state.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class RoundedImageFrame extends StatelessWidget {
   final double size;
@@ -16,7 +18,7 @@ class RoundedImageFrame extends StatelessWidget {
       width: this.size,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        border:  Border.all(color: ColorConsts.black, width: 1)
+        border: Border.all(color: Provider.of<ThemeState>(context, listen: false).isDark() ? ColorConsts.white : ColorConsts.black, width: 1)
       ),
       child: Center(
         child: Container(
