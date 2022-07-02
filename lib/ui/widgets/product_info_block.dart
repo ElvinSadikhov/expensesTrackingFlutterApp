@@ -38,6 +38,14 @@ class _ProductInfoBlockState extends State<ProductInfoBlock> {
           height: widget.blockHeight,
           width: widget.blockWidth,
         ),
+        // Hero(
+        //   tag: widget.product.id,
+        //   child: ImageBox( 
+        //     imageLink: widget.product.imageLink,
+        //     height: widget.blockHeight,
+        //     width: widget.blockWidth,
+        //   ),
+        // ),
         WidgetMethods.verticalSpace(10),
         Align(
           alignment: Alignment.centerRight,

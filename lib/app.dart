@@ -1,4 +1,4 @@
-import 'package:expenses_tracking_app/app_themes.dart';
+import 'package:expenses_tracking_app/config/app_themes.dart';
 import 'package:expenses_tracking_app/l10n/l10n.dart'; 
 import 'package:expenses_tracking_app/providers/locale_state.dart';  
 import 'package:expenses_tracking_app/providers/theme_state.dart'; 
@@ -15,29 +15,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) { 
-    return Consumer<LocaleState>(
-      builder: (context, LocaleState localeState, _) {
-        return Consumer<ThemeState>(
-          builder: (context, ThemeState themeState, _) {
-            return MaterialApp(
-              title: 'Flutter Demo',
-              theme: AppThemes.lightTheme.copyWith(textTheme: AppThemes.getTextTheme(isDark: themeState.isDark())),
-              darkTheme: AppThemes.darkTheme.copyWith(textTheme: AppThemes.getTextTheme(isDark: themeState.isDark())),
-              themeMode: themeState.themeMode,
-              home: const MainScreen(), // LoginScreen()
-              debugShowCheckedModeBanner: false,
-              supportedLocales: L10n.all,
-              localizationsDelegates: const [
-                AppLocalizations.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-              ],
-              locale: localeState.locale,
-            );
-          }, 
-        );
-      }, 
+    return Consumer2<LocaleState, ThemeState>(
+      builder: (context, LocaleState localeState, ThemeState themeState, child) {
+        return MaterialApp(
+          title: 'Flutter Demo',
+          theme: AppThemes.lightTheme.copyWith(textTheme: AppThemes.getTextTheme(isDark: themeState.isDark())),
+          darkTheme: AppThemes.darkTheme.copyWith(textTheme: AppThemes.getTextTheme(isDark: themeState.isDark())),
+          themeMode: themeState.themeMode,
+          home: const MainScreen(), // LoginScreen()
+          debugShowCheckedModeBanner: false,
+          supportedLocales: L10n.all,
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
+          locale: localeState.locale,
+        ); 
+      },
     );
   }
 } 

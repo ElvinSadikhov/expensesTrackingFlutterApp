@@ -30,7 +30,7 @@ class DiscountTag extends StatelessWidget {
       decoration: BoxDecoration(
         color: ColorConsts.discountTagColor,
         shape: BoxShape.circle,
-        border: Border.all(width: 1) // TODO: WRITE IT TO SIZE CONSTS( AND NOT ONLY THIS ONE BUT OTHERS TOO ) 
+        border: Border.all(width: 1) 
       ),
     );
   }

@@ -41,11 +41,20 @@ class ProductShortcut extends StatelessWidget {
                 children: [
                   WidgetMethods.verticalSpace(this.discountTagShift),
                   ImageBox(
-                    borderRadiusValue: this.borderRadiusValue, 
-                    imageLink: this.product.imageLink, 
-                    height: this.containerSize, 
-                    width: this.containerSize
-                  ), 
+                      borderRadiusValue: this.borderRadiusValue, 
+                      imageLink: this.product.imageLink, 
+                      height: this.containerSize, 
+                      width: this.containerSize
+                    ),
+                  // Hero(
+                  //   tag: this.product.id,
+                  //   child: ImageBox(
+                  //     borderRadiusValue: this.borderRadiusValue, 
+                  //     imageLink: this.product.imageLink, 
+                  //     height: this.containerSize, 
+                  //     width: this.containerSize
+                  //   ),
+                  // ), 
                   Text(this.product.title, 
                     style: Theme.of(context).textTheme.headline1!,
                   ),

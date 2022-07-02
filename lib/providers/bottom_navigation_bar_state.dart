@@ -29,7 +29,6 @@ class BottomNavigationBarState with ChangeNotifier {
   void changeScreenByIndex({required BuildContext context, required int index}) {
     this.updateSelectedItemIndex(index: index);
     Navigator.push(context, MaterialPageRoute(builder: (context) => const MainScreen())); 
-  } 
- 
-
+  }  
+  
 }
