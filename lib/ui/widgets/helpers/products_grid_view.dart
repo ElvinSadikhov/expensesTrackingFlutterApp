@@ -27,7 +27,7 @@ class ProductsGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return this.products != null
       ? this.products!.isNotEmpty
-        ? GridView.builder(
+        ? GridView.builder( 
           physics: const BouncingScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
             crossAxisCount: this.numberOfColumns,

@@ -1,7 +1,6 @@
 // ignore_for_file: unnecessary_this
  
-import 'package:expenses_tracking_app/consts/padding_consts.dart';
-import 'package:expenses_tracking_app/consts/strings.dart';  
+import 'package:expenses_tracking_app/consts/padding_consts.dart'; 
 import 'package:expenses_tracking_app/models/purhcase.dart';
 import 'package:expenses_tracking_app/providers/cart_state.dart';
 import 'package:expenses_tracking_app/ui/screens/product_screen.dart';
@@ -11,6 +10,7 @@ import 'package:expenses_tracking_app/utils/helpers/price_builder.dart';
 import 'package:expenses_tracking_app/utils/helpers/widget_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class PurchaseShortcut extends StatelessWidget { 
@@ -119,7 +119,7 @@ class PurchaseShortcut extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  " " + Strings.price + PriceBuilder.build(price: this.purchase.product.price, currency: this.purchase.product.currency),
+                  " " + AppLocalizations.of(context)!.price + PriceBuilder.build(price: this.purchase.product.price, currency: this.purchase.product.currency),
                   style: Theme.of(context).textTheme.headline4!.copyWith(fontWeight: FontWeight.w400),
                 ),
                 Consumer<CartState>(
@@ -129,7 +129,7 @@ class PurchaseShortcut extends StatelessWidget {
                       builder: (context, snapshot) {
                         return snapshot.hasData 
                           ? Text(
-                            Strings.total + PriceBuilder.build(price: this.purchase.product.price * snapshot.data!, currency: this.purchase.product.currency),
+                            AppLocalizations.of(context)!.total + PriceBuilder.build(price: this.purchase.product.price * snapshot.data!, currency: this.purchase.product.currency),
                             style: Theme.of(context).textTheme.headline4!.copyWith(fontWeight: FontWeight.w400),
                           )
                           : const CircularProgressIndicator();

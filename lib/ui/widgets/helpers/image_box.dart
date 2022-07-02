@@ -22,18 +22,22 @@ class ImageBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card( 
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(this.borderRadiusValue),
-          side: BorderSide(width: 1.5, color: Provider.of<ThemeState>(context, listen: false).isDark() ? ColorConsts.white : ColorConsts.black,)),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(this.borderRadiusValue),
-        child: Image.network(this.imageLink, 
-          fit: BoxFit.cover,
-          height: this.height,
-          width: this.width,
-        ),
-      ),
+    return Consumer<ThemeState>(
+      builder: (context, ThemeState themeState, _) {
+        return Card( 
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(this.borderRadiusValue),
+              side: BorderSide(width: 1.5, color: themeState.isDark() ? ColorConsts.white : ColorConsts.black,)),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(this.borderRadiusValue),
+            child: Image.network(this.imageLink, 
+              fit: BoxFit.cover,
+              height: this.height,
+              width: this.width,
+            ),
+          ),
+        );
+      }, 
     );
   }
 }

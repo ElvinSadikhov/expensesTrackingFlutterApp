@@ -1,13 +1,12 @@
 // ignore_for_file: unnecessary_this
-
-import 'package:expenses_tracking_app/consts/strings.dart';
-import 'package:expenses_tracking_app/ui/screens/helpers/home_screen.dart';
+ 
 import 'package:expenses_tracking_app/ui/screens/main_screen.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/custom_text_form_field.dart';
 import 'package:expenses_tracking_app/ui/widgets/labeled_button.dart';
 import 'package:expenses_tracking_app/utils/helpers/validators/login_validator.dart';
 import 'package:expenses_tracking_app/utils/helpers/widget_methods.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
  
 class LoginForm extends StatefulWidget { 
   final EdgeInsets padding;
@@ -27,10 +26,12 @@ class _LoginFormState extends State<LoginForm> {
     TextEditingController(text: ""),
     TextEditingController(text: ""), 
   ];
-  final List<String> _texts = [ 
-    Strings.username,
-    Strings.password, 
+
+  List<String> _texts({required BuildContext context}) => [ 
+    AppLocalizations.of(context)!.username,
+    AppLocalizations.of(context)!.password, 
   ];  
+
   final List<dynamic> _validators = [ 
     LoginValidator.validateUsername,
     LoginValidator.validatePassword, 
@@ -52,8 +53,8 @@ class _LoginFormState extends State<LoginForm> {
                     return CustomTextFormField(
                       controller: this._controllers[index], 
                       validator: this._validators[index],
-                      hintText: this._texts[index],
-                      labelText: this._texts[index],
+                      hintText: this._texts(context: context)[index],
+                      labelText: this._texts(context: context)[index],
                       obscureText: index >= this._controllers.length - 1 ? true : false,
                       textInputAction: index == this._controllers.length - 1 ? TextInputAction.done : TextInputAction.next,
                     );
@@ -77,7 +78,7 @@ class _LoginFormState extends State<LoginForm> {
               }
             } 
           }, 
-          label: Strings.logIn,  
+          label: AppLocalizations.of(context)!.logIn,  
         ),  
       ],
     );

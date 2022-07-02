@@ -3,6 +3,7 @@ import 'package:expenses_tracking_app/data/mock_data.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/rounded_image_frame.dart';
 import 'package:expenses_tracking_app/utils/helpers/widget_methods.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class AccountInfoBlock extends StatelessWidget {
@@ -24,12 +25,12 @@ class AccountInfoBlock extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                Strings.username + ": " + MockData.username, 
+                AppLocalizations.of(context)!.username + ": " + MockData.username, 
                 style: Theme.of(context).textTheme.headline4!.copyWith(fontWeight: FontWeight.w500),
               ),
               WidgetMethods.verticalSpace(15),
               Text(
-                Strings.gmail + ": " + MockData.gmail,  
+                AppLocalizations.of(context)!.gmail + ": " + MockData.gmail,  
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.headline4!.copyWith(fontWeight: FontWeight.w500),
               )

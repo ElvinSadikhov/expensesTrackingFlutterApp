@@ -83,7 +83,7 @@ class QrScannerScreenState extends State<QrScannerScreen>{
             children: [
               QRView(
                 key: qrKey, 
-                onQRViewCreated: _onQRViewCreated, 
+                onQRViewCreated: _onQRViewCreated,  
               ),
               BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 7.0, sigmaY: 7.0),
@@ -92,7 +92,8 @@ class QrScannerScreenState extends State<QrScannerScreen>{
                     shape: QrScannerOverlayShape(
                       borderWidth: 10,
                       borderRadius: 10,
-                      cutOutSize: MediaQuery.of(context).size.width * 0.45
+                      cutOutSize: MediaQuery.of(context).size.width * 0.45,
+                      borderColor: ColorConsts.blueAccent
                     ),
                   ),
                 )
@@ -102,19 +103,19 @@ class QrScannerScreenState extends State<QrScannerScreen>{
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                          CustomBackButton(buildContext: context, buttonSize: SizeConsts.kDefaultAppBarButtonSize, color: ColorConsts.white,),
-                          SizedBox(width: SizeConsts.kDefaultAppBarButtonSize)
-                        ],),
-                      ],
-                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                      CustomBackButton(buildContext: context, buttonSize: SizeConsts.kDefaultAppBarButtonSize, color: ColorConsts.white,),
+                      const SizedBox(width: SizeConsts.kDefaultAppBarButtonSize)
+                    ],),
+                  ],
+                ),
               ),
               Positioned(
                 child:  GestureDetector( 
                   child: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(25)),
+                    borderRadius: const BorderRadius.all(Radius.circular(25)),
                     child: Container(
                       height: SizeConsts.kDefaultAppBarButtonSize + 10,
                       width: SizeConsts.kDefaultAppBarButtonSize + 10,

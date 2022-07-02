@@ -13,26 +13,30 @@ class RoundedImageFrame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: this.size,
-      width: this.size,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        border: Border.all(color: Provider.of<ThemeState>(context, listen: false).isDark() ? ColorConsts.white : ColorConsts.black, width: 1)
-      ),
-      child: Center(
-        child: Container(
-          height: this.size * 0.85,
-          width: this.size * 0.85,
+    return Consumer<ThemeState>(
+      builder: (context, ThemeState themeState, _) {
+        return Container(
+          height: this.size,
+          width: this.size,
           decoration: BoxDecoration(
-            shape: BoxShape.circle, 
-            image: DecorationImage(
-              image: this.image,
-              fit: BoxFit.cover
-            )
-          ), 
-        ),
-      ),
+            shape: BoxShape.circle,
+            border: Border.all(color: themeState.isDark() ? ColorConsts.white : ColorConsts.black, width: 1)
+          ),
+          child: Center(
+            child: Container(
+              height: this.size * 0.85,
+              width: this.size * 0.85,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle, 
+                image: DecorationImage(
+                  image: this.image,
+                  fit: BoxFit.cover
+                )
+              ), 
+            ),
+          ),
+        );
+      }, 
     );
   }
 }

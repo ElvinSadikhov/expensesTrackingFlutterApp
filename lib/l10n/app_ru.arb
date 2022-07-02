@@ -1,0 +1,46 @@
+{
+    "logIn": "Логин",
+    "username": "Имя пользователя",
+    "password": "Пароль",
+    "createAnAccount": "Создайте аккаунт",
+    "createAnAccountExclamatory": "Создайте аккаунт!",  
+    "registrationRecommendation": "Ещё не создали аккаунт? ",    
+    "loginRecommendation": "Уже есть аккаунт? ",   
+    "logInExclamatory" : "Войдите в аккаунт!",   
+
+    "registration": "Регистрация",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "gmail": "Гмаил", 
+    "confirmPassword": "Подтвердите пароль",
+
+    "home": "Главная",  
+    "cart": "Корзина",  
+    "history": "История",  
+    "profile": "Профиль",
+
+    "seeAll": "Все",
+    "discountedProducts": "Продукты со скидкой", 
+    "latestProductPrices": "Обновлённые цены товаров",
+    "favouriteProducts": "Понравившиеся продукты",
+
+    "price": "Цена: ",
+    "discountedPrice": "Цена по скидке",
+    "location": "Месторасположение",
+    "description": "Описание",
+    "store": "Магазин",
+    "pricesInOtherStores": "Цены в других магазинах: ",
+    "addToCart": "Добавить в корзину",
+    "productHasBeenAddedToTheCart": "Продукт успешно добавлен в корзину!",
+
+    "yourCart": "Ваша Корзина",
+    "total": "Всего: ",
+
+    "yourProfile": "Ваш Профиль",
+
+    "theme": "Тема",
+    "language": "Язык",
+
+    "english": "Английский",
+    "russian": "Русский"
+}

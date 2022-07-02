@@ -1,4 +1,3 @@
-import 'package:expenses_tracking_app/consts/strings.dart';
 import 'package:expenses_tracking_app/models/product.dart';
 import 'package:expenses_tracking_app/providers/favourite_products_state.dart';
 import 'package:expenses_tracking_app/ui/screens/favourite_products_screen.dart'; 
@@ -7,6 +6,7 @@ import 'package:expenses_tracking_app/ui/widgets/helpers/products_list_view.dart
 import 'package:expenses_tracking_app/ui/widgets/product_block.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class FavouriteProductsBlock extends StatelessWidget {
@@ -23,7 +23,7 @@ class FavouriteProductsBlock extends StatelessWidget {
 
             return ProductBlock(
               blockLabel: BlockLabel(
-                title: Strings.favouriteProducts,
+                title: AppLocalizations.of(context)!.favouriteProducts,
                 onTap: () {
                   Navigator.push(
                     context, 

@@ -8,6 +8,7 @@ import 'package:expenses_tracking_app/ui/widgets/search_app_bar.dart';
 import 'package:expenses_tracking_app/utils/helpers/product_shortcut_size_properties.dart';  
 import 'package:expenses_tracking_app/ui/widgets/helpers/products_grid_view.dart'; 
 import 'package:flutter/material.dart'; 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class DiscountedProductsScreen extends StatelessWidget {
@@ -20,7 +21,7 @@ class DiscountedProductsScreen extends StatelessWidget {
     return Scaffold(
       appBar: SearchAppBar(
         buildContext: context, 
-        label: Strings.discountedProducts, 
+        label: AppLocalizations.of(context)!.discountedProducts, 
         searchDelegate: ProductSearch(productList: this.products != null ? this.products! : [])
       ),
       body: Padding(

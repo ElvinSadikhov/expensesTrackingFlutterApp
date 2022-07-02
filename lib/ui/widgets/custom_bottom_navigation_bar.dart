@@ -1,8 +1,7 @@
 // ignore_for_file: unnecessary_this
 
 import 'package:expenses_tracking_app/consts/color_consts.dart'; 
-import 'package:expenses_tracking_app/providers/bottom_navigation_bar_state.dart';
-import 'package:expenses_tracking_app/ui/screens/helpers/cart_screen.dart';
+import 'package:expenses_tracking_app/providers/bottom_navigation_bar_state.dart'; 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,7 +20,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     return Consumer<BottomNavigationBarState>(
       builder: (context, BottomNavigationBarState bottomNavigationBarState, _) {
         return BottomNavigationBar( 
-          items: bottomNavigationBarState.navigataionItems,
+          items: bottomNavigationBarState.navigataionItems!,
           selectedItemColor: ColorConsts.blueAccent,
           currentIndex: bottomNavigationBarState.selectedItemIndex,
           onTap: (index) {

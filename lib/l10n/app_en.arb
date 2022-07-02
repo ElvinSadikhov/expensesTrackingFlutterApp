@@ -1,0 +1,46 @@
+{
+    "logIn": "Log in",
+    "username": "Username",
+    "password": "Password",
+    "createAnAccount": "Create an account",
+    "createAnAccountExclamatory": "Create an account!",  
+    "registrationRecommendation": "Don't have an account yet? ",    
+    "loginRecommendation": "Already have an account? ",   
+    "logInExclamatory" : "Log in!",   
+
+    "registration": "Registration",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "gmail": "Gmail", 
+    "confirmPassword": "Confirm password",
+
+    "home": "Home",  
+    "cart": "Cart",  
+    "history": "History",  
+    "profile": "Profile",
+
+    "seeAll": "See all",
+    "discountedProducts": "Discounted Products", 
+    "latestProductPrices": "Latest Product Prices",
+    "favouriteProducts": "Favourite Products",
+
+    "price": "Price: ",
+    "discountedPrice": "Discounted Price",
+    "location": "Location",
+    "description": "Description",
+    "store": "Store",
+    "pricesInOtherStores": "Prices in other stores: ",
+    "addToCart": "Add To Cart",
+    "productHasBeenAddedToTheCart": "Product has been added to the cart!",
+
+    "yourCart": "Your Cart",
+    "total": "Total: ",
+
+    "yourProfile": "Your Profile",
+
+    "theme": "Theme",
+    "language": "Language",
+
+    "english": "English",
+    "russian": "Russian"
+}

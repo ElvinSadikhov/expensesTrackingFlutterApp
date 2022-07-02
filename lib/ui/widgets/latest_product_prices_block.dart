@@ -1,6 +1,5 @@
 // ignore_for_file: unnecessary_this
-
-import 'package:expenses_tracking_app/consts/strings.dart';
+ 
 import 'package:expenses_tracking_app/models/product.dart';
 import 'package:expenses_tracking_app/models/responses/product_response.dart'; 
 import 'package:expenses_tracking_app/services/explore_service.dart.dart';
@@ -9,7 +8,7 @@ import 'package:expenses_tracking_app/ui/widgets/helpers/block_label.dart';
 import 'package:expenses_tracking_app/ui/widgets/helpers/products_list_view.dart'; 
 import 'package:expenses_tracking_app/ui/widgets/product_block.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LatestProductPricesBlock extends StatefulWidget {
   const LatestProductPricesBlock({ Key? key }) : super(key: key);
@@ -45,7 +44,7 @@ class _LatestProductPricesBlockState extends State<LatestProductPricesBlock> {
   Widget build(BuildContext context) {
     return ProductBlock(
       blockLabel: BlockLabel(
-        title: Strings.latestProductPrices, 
+        title: AppLocalizations.of(context)!.latestProductPrices, 
         onTap: () {
           Navigator.push(
             context, 

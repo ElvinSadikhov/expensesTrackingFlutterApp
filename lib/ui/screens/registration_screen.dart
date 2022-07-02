@@ -7,6 +7,7 @@ import 'package:expenses_tracking_app/ui/widgets/custom_app_bar.dart';
 import 'package:expenses_tracking_app/ui/widgets/registration_form.dart';
 import 'package:expenses_tracking_app/utils/helpers/widget_methods.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RegistrationScreen extends StatelessWidget {
   const RegistrationScreen({ Key? key }) : super(key: key);
@@ -14,7 +15,7 @@ class RegistrationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
-      appBar: CustomAppBar(label: Strings.registration, leftIcon: CustomBackButton(buildContext: context)),
+      appBar: CustomAppBar(label: AppLocalizations.of(context)!.registration, leftIcon: CustomBackButton(buildContext: context)),
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.only(top: 30, left: PaddingConsts.horizontalPadding, right: PaddingConsts.horizontalPadding),
@@ -28,8 +29,8 @@ class RegistrationScreen extends StatelessWidget {
                   const RegistrationForm(padding: EdgeInsets.symmetric(horizontal: 30),),
                   WidgetMethods.verticalSpace(30),
                   ClickableRecommendationText(
-                    nonclickableText: Strings.loginRecommendation, 
-                    clickableText: Strings.logInExclamatory,
+                    nonclickableText: AppLocalizations.of(context)!.loginRecommendation, 
+                    clickableText: AppLocalizations.of(context)!.logInExclamatory,
                     onTap: () {
                       debugPrint('Login (testSpan) has been clicked');
                       Navigator.push(
